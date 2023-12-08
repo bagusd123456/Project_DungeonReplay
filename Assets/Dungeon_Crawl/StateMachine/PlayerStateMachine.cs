@@ -39,6 +39,9 @@ public class PlayerStateMachine : MonoBehaviour
     Vector2 _currentInputVector;
     Vector2 _smoothInputVelocity;
 
+    [Header("Weapon List")]
+    public List<GameObject> _weaponList;
+
     // variables responsible for camera
     float _camRayLength = 100f;
 
@@ -59,6 +62,9 @@ public class PlayerStateMachine : MonoBehaviour
     public bool IsDashing { get { return _isDashing; } set { _isDashing = value; } }
     public float DashSpeed { get { return _dashSpeed; } }
     public bool IsAbleToDash { get { return _isAbleToDash; } set { _isAbleToDash = value; } }
+    public List<GameObject> WeaponList { get { return _weaponList; } }
+    public bool IsSwitchingWeapon { get { return _isSwitchingWeapon; } }
+    public float CurrentWeapon { get { return _currentWeapon; } }
     public Vector2 CurrentMovementInput { get { return _currentMovementInput; } }
     public float AppliedMovementX { get { return _appliedMovement.x; } set { _appliedMovement.x = value; } }
     public float AppliedMovementY { get { return _appliedMovement.y; } set { _appliedMovement.y = value; } }
@@ -164,7 +170,7 @@ public class PlayerStateMachine : MonoBehaviour
     void IdleAttackMomentum()
     {
         // Adds Force to Player
-        _rigidBody.AddForce(transform.forward * _attackDashSpeed);
+        //_rigidBody.AddForce(transform.forward * _attackDashSpeed);
 
         // After done attacking, return to idle state
         _isAttacking = false;
@@ -209,7 +215,6 @@ public class PlayerStateMachine : MonoBehaviour
     void OnWeaponSwitchInput(InputAction.CallbackContext context)
     {
         _currentWeapon = context.ReadValue<float>();
-        Debug.Log(_currentWeapon);
     }
     #endregion 
 

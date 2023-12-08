@@ -29,5 +29,10 @@ public class PlayerRunState : PlayerBaseState
         {
             SwitchState(Factory.Dash());
         }
+
+        if (Ctx.IsSwitchingWeapon)
+        {
+            SwitchState(Factory.SwitchWeapon());
+        }
     }
 }

@@ -6,7 +6,8 @@ enum PlayerStates
     idle,
     run,
     attack,
-    dash
+    dash,
+    switchweapon
 }
 
 public class PlayerStateFactory
@@ -22,6 +23,7 @@ public class PlayerStateFactory
         _states[PlayerStates.run] = new PlayerRunState(_context, this);
         _states[PlayerStates.attack] = new PlayerAttackState(_context, this);
         _states[PlayerStates.dash] = new PlayerDashState(_context, this);
+        _states[PlayerStates.switchweapon] = new PlayerSwitchWeaponSubState (_context, this);
     }
 
     public PlayerBaseState Grounded()
@@ -46,6 +48,11 @@ public class PlayerStateFactory
     public PlayerBaseState Dash()
     {
         return _states[PlayerStates.dash];
+    }
+
+    public PlayerBaseState SwitchWeapon()
+    {
+        return _states[PlayerStates.switchweapon];
     }
 
 }

@@ -32,5 +32,10 @@ public class PlayerIdleState : PlayerBaseState
         {
             SwitchState(Factory.Dash());
         }
+
+        if (Ctx.IsSwitchingWeapon)
+        {
+            SwitchState(Factory.SwitchWeapon());
+        }
     }
 }

@@ -36,6 +36,11 @@ public class PlayerGroundedState : PlayerBaseState
         {
             SetSubState(Factory.Dash());
         }
+
+        if (Ctx.IsSwitchingWeapon)
+        {
+            SetSubState(Factory.SwitchWeapon());
+        }
     }
 
     public override void CheckSwitchState()

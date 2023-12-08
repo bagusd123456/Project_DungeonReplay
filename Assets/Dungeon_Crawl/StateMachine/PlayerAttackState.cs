@@ -11,7 +11,7 @@ public class PlayerAttackState : PlayerBaseState
         FaceMouse();
         Ctx.Animator.SetTrigger("isAttacking");
         Ctx.IsAttacking = true;
-
+        ShootWeapon();
     }
 
     public override void UpdateState()
@@ -34,6 +34,7 @@ public class PlayerAttackState : PlayerBaseState
         }
     }
 
+    // Logic for Player faces the mouse when clicking
     void FaceMouse()
     {
         Ray camRay = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -49,5 +50,11 @@ public class PlayerAttackState : PlayerBaseState
 
             Ctx.Rigidbody.MoveRotation(newRotation);
         }
+    }
+
+    // logic to shoot projectile from weapon
+    void ShootWeapon()
+    {
+        
     }
 }
