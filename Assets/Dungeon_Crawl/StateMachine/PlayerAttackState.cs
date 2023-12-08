@@ -31,7 +31,6 @@ public class PlayerAttackState : PlayerBaseState
         } else if (!Ctx.IsAttacking && Ctx.IsMovementPressed)
         {
             SwitchState(Factory.Run());
-
         }
     }
 

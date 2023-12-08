@@ -24,6 +24,9 @@ public class PlayerStateMachine : MonoBehaviour
     bool _isDashPressed = false;
     bool _isDashing = false;
     bool _isAbleToDash = true;
+    bool _isSwitchingWeapon = false;
+    float _currentWeapon = 1;
+
 
     // variables responsible for player movements
     [Header("Movements Variables")]
@@ -44,6 +47,7 @@ public class PlayerStateMachine : MonoBehaviour
     PlayerStateFactory _states;
 
     // getters and setters
+    #region getters and setters
     public Animator Animator { get { return _animator; } }
     public Rigidbody Rigidbody { get { return _rigidBody; } set { _rigidBody = value; } }
     public Camera Camera { get { return _camera; } }
@@ -60,7 +64,7 @@ public class PlayerStateMachine : MonoBehaviour
     public float AppliedMovementY { get { return _appliedMovement.y; } set { _appliedMovement.y = value; } }
     public float CamRayLength { get { return _camRayLength; } set { _camRayLength = value; } }
     public LayerMask FloorMask { get { return _groundMask; } set { _groundMask = value; } }
-
+    #endregion
     private void Awake()
     {
         // initially set reference variables
@@ -83,6 +87,9 @@ public class PlayerStateMachine : MonoBehaviour
         _playerInput.Player.Attack.canceled += OnAttackInput;
         _playerInput.Player.Dash.started += OnDashInput;
         _playerInput.Player.Dash.canceled += OnDashInput;
+        _playerInput.Player.SwitchWeapon.started += OnWeaponSwitchInput;
+        _playerInput.Player.SwitchWeapon.started += OnSwitchWeaponCheck;
+        _playerInput.Player.SwitchWeapon.canceled += OnSwitchWeaponCheck;
 
     }
 
@@ -171,13 +178,12 @@ public class PlayerStateMachine : MonoBehaviour
         yield return new WaitForSeconds(.5f);
 
         _isAbleToDash = true;
-
     }
 
-
-    #region Input System
     // below is Input Managers for the new Unity Input System
     // P.S: its actually really helpful but really complicated to set up
+    #region Input System
+
     void OnMovementInput(InputAction.CallbackContext context)
     {
         _currentMovementInput = context.ReadValue<Vector2>();
@@ -193,6 +199,19 @@ public class PlayerStateMachine : MonoBehaviour
     {
         _isAttackPressed = context.ReadValueAsButton();
     }
+
+    #region Weapon Switching Input Logic
+    void OnSwitchWeaponCheck(InputAction.CallbackContext context)
+    {
+        _isSwitchingWeapon = context.ReadValueAsButton();
+    }
+
+    void OnWeaponSwitchInput(InputAction.CallbackContext context)
+    {
+        _currentWeapon = context.ReadValue<float>();
+        Debug.Log(_currentWeapon);
+    }
+    #endregion 
 
     private void OnEnable()
     {
