@@ -498,6 +498,7 @@ MonoBehaviour:
   _attackDashSpeed: 100
   _rotationFactorPerFrame: 20
   _movementSmoothing: 0.2
+  _weaponList: []
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -1518,9 +1519,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tempRoom: {fileID: 1363937011}
   roomPrefabList:
-  - {fileID: 526661985}
-  - {fileID: 811916570}
-  - {fileID: 769011388}
+  - roomPrefab: {fileID: 526661985}
+    probability: 10
+  - roomPrefab: {fileID: 811916570}
+    probability: 10
+  - roomPrefab: {fileID: 769011388}
+    probability: 10
 --- !u!4 &2115779177
 Transform:
   m_ObjectHideFlags: 0
