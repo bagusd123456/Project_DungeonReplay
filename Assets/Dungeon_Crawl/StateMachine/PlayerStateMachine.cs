@@ -55,7 +55,7 @@ public class PlayerStateMachine : MonoBehaviour
     public Rigidbody Rigidbody { get { return _rigidBody; } set { _rigidBody = value; } }
     public Camera Camera { get { return _camera; } }
     public PlayerBaseState CurrentState { get { return _currentState; } set { _currentState = value; } }
-    public bool IsMovementPressed { get { return _isMovementPressed; } }
+    public bool IsMovementPressed { get { return _isMovementPressed; } set { _isMovementPressed = value; } }
     public bool IsAttackPressed { get { return _isAttackPressed; } }
     public bool IsAttacking { get { return _isAttacking; } set { _isAttacking = value; } }
     public bool IsDashPressed { get { return _isDashPressed; } }
@@ -116,28 +116,61 @@ public class PlayerStateMachine : MonoBehaviour
     // Handles Player Rotation
     void HandleRotation()
     {
-        // Get Camera Relative Direction based on player input
-        CameraRelativeControls(_currentMovementInput);
-
-        // the current rotation of our character
-        Quaternion currentRotation = transform.rotation;
-
-        if (_isMovementPressed)
+        if (!_isAttacking)
         {
-            // creates a new rotation based on where the player is currently pressing
-            Quaternion targetRotation = Quaternion.LookRotation(cameraRelativeDirections, Vector3.up);
-            transform.rotation = Quaternion.Slerp(currentRotation, targetRotation, _rotationFactorPerFrame * Time.deltaTime);
+            // Get Camera Relative Direction based on player input
+            CameraRelativeControls(_currentMovementInput);
+
+            // the current rotation of our character
+            Quaternion currentRotation = transform.rotation;
+
+            if (_isMovementPressed)
+            {
+                // creates a new rotation based on where the player is currently pressing
+                Quaternion targetRotation = Quaternion.LookRotation(cameraRelativeDirections, Vector3.up);
+                transform.rotation = Quaternion.Slerp(currentRotation, targetRotation, _rotationFactorPerFrame * Time.deltaTime);
+            }
+        }
+        else
+        {
+            FaceMouse();
+        }
+        
+    }
+
+    void FaceMouse()
+    {
+        Ray camRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        RaycastHit floorHit;
+
+        if (Physics.Raycast(camRay, out floorHit, _camRayLength, _groundMask))
+        {
+            Vector3 playerToMouse = floorHit.point - transform.position;
+            playerToMouse.y = 0;
+
+            Quaternion newRotation = Quaternion.LookRotation(playerToMouse);
+
+            transform.rotation = newRotation;
         }
     }
 
     // Handles player Movements
     void HandleMovement()
     {
-        // Get Camera Relative Directions based on player input
-        CameraRelativeControls(_appliedMovement);
-       
-        // IT IS THE WALKING BIT
-        _rigidBody.MovePosition(transform.position + (cameraRelativeDirections * _moveSpeed * Time.deltaTime));
+        if (!_isAttacking)
+        {
+            // Get Camera Relative Directions based on player input
+            CameraRelativeControls(_appliedMovement);
+
+            // IT IS THE WALKING BIT
+            _rigidBody.MovePosition(transform.position + (cameraRelativeDirections * _moveSpeed * Time.deltaTime));
+        }
+        else
+        {
+            _isMovementPressed = false;
+        }
+        
     }
 
     // Handles Camera Based Directions
@@ -172,8 +205,15 @@ public class PlayerStateMachine : MonoBehaviour
         // Adds Force to Player
         //_rigidBody.AddForce(transform.forward * _attackDashSpeed);
 
+        
+
         // After done attacking, return to idle state
         _isAttacking = false;
+
+        if (_playerInput.Player.Movement.inProgress)
+        {
+            _isMovementPressed = true;
+        }
     }
 
     // Gives a short cooldown on Dashes

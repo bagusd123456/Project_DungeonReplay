@@ -22,6 +22,11 @@ public class PlayerRunState : PlayerBaseState
     public override void InitializeSubState() { }
 
     public override void CheckSwitchState() {
+        if (Ctx.IsAttackPressed)
+        {
+            SwitchState(Factory.Attack());
+        }
+
         if (!Ctx.IsMovementPressed)
         {
             SwitchState(Factory.Idle());
@@ -34,5 +39,7 @@ public class PlayerRunState : PlayerBaseState
         {
             SwitchState(Factory.SwitchWeapon());
         }
+
+        
     }
 }

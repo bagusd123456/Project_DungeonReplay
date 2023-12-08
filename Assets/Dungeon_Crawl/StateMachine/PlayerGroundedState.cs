@@ -25,10 +25,6 @@ public class PlayerGroundedState : PlayerBaseState
         if (!Ctx.IsMovementPressed)
         {
             SetSubState(Factory.Idle());
-        }
-        else if (!Ctx.IsMovementPressed && Ctx.IsAttackPressed)
-        {
-            SetSubState(Factory.Attack());
         } else if (Ctx.IsMovementPressed)
         {
             SetSubState(Factory.Run());
@@ -40,6 +36,11 @@ public class PlayerGroundedState : PlayerBaseState
         if (Ctx.IsSwitchingWeapon)
         {
             SetSubState(Factory.SwitchWeapon());
+        }
+
+        if (Ctx.IsAttackPressed)
+        {
+            SetSubState(Factory.Attack());
         }
     }
 

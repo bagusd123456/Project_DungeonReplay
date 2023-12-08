@@ -25,9 +25,6 @@ public class PlayerIdleState : PlayerBaseState
         if (Ctx.IsMovementPressed)
         {
             SwitchState(Factory.Run());
-        } else if (!Ctx.IsMovementPressed && Ctx.IsAttackPressed)
-        {
-            SwitchState(Factory.Attack());
         } else if (Ctx.IsDashPressed && Ctx.IsAbleToDash)
         {
             SwitchState(Factory.Dash());
@@ -36,6 +33,11 @@ public class PlayerIdleState : PlayerBaseState
         if (Ctx.IsSwitchingWeapon)
         {
             SwitchState(Factory.SwitchWeapon());
+        }
+
+        if (Ctx.IsAttackPressed)
+        {
+            SwitchState(Factory.Attack());
         }
     }
 }

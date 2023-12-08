@@ -515,7 +515,7 @@ GameObject:
   - component: {fileID: 281985378}
   - component: {fileID: 281985377}
   - component: {fileID: 281985376}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: er
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -785,7 +785,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _groundMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 72
   _moveSpeed: 8
   _dashSpeed: 20
   _attackDashSpeed: 100
@@ -1184,7 +1184,7 @@ GameObject:
   - component: {fileID: 523277557}
   - component: {fileID: 523277556}
   - component: {fileID: 523277555}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: er (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

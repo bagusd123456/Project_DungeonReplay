@@ -8,14 +8,20 @@ public class PlayerAttackState : PlayerBaseState
         : base(currentContext, playerStateFactory) { }
     public override void EnterState()
     {
-        FaceMouse();
-        Ctx.Animator.SetTrigger("isAttacking");
         Ctx.IsAttacking = true;
-        ShootWeapon();
+        Ctx.IsMovementPressed = false;
+
+        Ctx.AppliedMovementX = 0;
+        Ctx.AppliedMovementY = 0;
+
+        Debug.Log("Iam attacking!");
+        Ctx.Animator.SetTrigger("isAttacking");
     }
 
     public override void UpdateState()
     {
+        //FaceMouse();
+
         CheckSwitchState();
     }
 
@@ -28,9 +34,12 @@ public class PlayerAttackState : PlayerBaseState
         if (!Ctx.IsAttacking && !Ctx.IsMovementPressed)
         {
             SwitchState(Factory.Idle());
+            Debug.Log("Iam exiting attack");
         } else if (!Ctx.IsAttacking && Ctx.IsMovementPressed)
         {
             SwitchState(Factory.Run());
+            Debug.Log("Iam exiting attack");
+
         }
     }
 
