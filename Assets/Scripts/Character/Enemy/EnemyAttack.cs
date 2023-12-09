@@ -146,7 +146,7 @@ public class EnemyAttack : MonoBehaviour
         if (distance < 3f)
         {
             //var blowGO = Instantiate(projectile, transform.position, transform.rotation);
-            //playerHealth.TakeDamage(attackDamage);
+            playerHealth.TakeDamage(attackDamage);
             enemyHealth.currentHealth = 0;
             Destroy(gameObject);
         }

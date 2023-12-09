@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.SceneManagement;
@@ -18,6 +19,7 @@ public class PlayerHealth : MonoBehaviour
     bool isDead;
     public bool damaged;
 
+    public GameObject detectedGO;
     void Awake()
     {
         //Mendapatkan reference komponen
@@ -31,7 +33,10 @@ public class PlayerHealth : MonoBehaviour
 
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            Destroy(detectedGO);
+        }
     }
 
     //fungsi untuk mendapatkan damage
@@ -81,9 +86,14 @@ public class PlayerHealth : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.name == "Wave 1")
+        if(other.CompareTag("Collectible"))
         {
-            //Debug.Log("Spawn Wave1");
+            detectedGO = other.gameObject;
         }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        detectedGO = null;
     }
 }

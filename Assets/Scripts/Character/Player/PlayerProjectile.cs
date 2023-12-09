@@ -1,11 +1,16 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerProjectile : MonoBehaviour
 {
-    [HideInInspector]
     public int damageAmount;
+
+    private void OnEnable()
+    {
+        Invoke(nameof(DisableGameObject), 3.5f);
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -21,12 +26,6 @@ public class PlayerProjectile : MonoBehaviour
             }
 
         }
-        else
-        {
-
-        }
-
-        Invoke(nameof(DisableGameObject), 3.5f);
     }
 
     public void DisableGameObject()

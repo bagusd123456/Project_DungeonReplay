@@ -12,12 +12,12 @@ GameObject:
   - component: {fileID: 9025471078741738381}
   - component: {fileID: 5557244066686917102}
   - component: {fileID: 571602578316114975}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TUpRight_Var1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &2227919159761124963
 Transform:

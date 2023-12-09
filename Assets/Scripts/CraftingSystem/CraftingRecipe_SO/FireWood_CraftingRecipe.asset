@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: FireWood_CraftingRecipe
+  m_EditorClassIdentifier: Assembly-CSharp:CraftingSystem:CraftingRecipe
+  firstItem: {fileID: 11400000, guid: 48f45b110a408564485d4d3527165f06, type: 2}
+  secondItem: {fileID: 11400000, guid: 34cc0b232ba93a14eb0992287e95971c, type: 2}
+  resultItem: {fileID: 11400000, guid: 494aaa1dc9312bb4895cc2ac97c258a6, type: 2}

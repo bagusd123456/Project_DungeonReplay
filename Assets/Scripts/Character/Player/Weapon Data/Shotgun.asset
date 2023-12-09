@@ -16,7 +16,7 @@ MonoBehaviour:
   weaponImage: {fileID: 21300000, guid: bc5a1965be7b9f64e90963b82170727a, type: 3}
   weaponType: 2
   range: 2.4
-  damage: 10
+  damage: 50
   ammoCapacity: 8
   magazineCapacity: 24
   infMagazine: 0

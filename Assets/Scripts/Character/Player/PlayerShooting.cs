@@ -114,11 +114,11 @@ public class PlayerShooting : MonoBehaviour
         //        Shootv2(loadoutDataArray[currentWeapon].weaponData);
         //}
 
-        if (Keyboard.current.rKey.wasPressedThisFrame)
-        {
-            if (loadoutDataArray.Count > 0)
-                WeaponReload(loadoutDataArray[currentWeapon].weaponData);
-        }
+        //if (Keyboard.current.rKey.wasPressedThisFrame)
+        //{
+        //    if (loadoutDataArray.Count > 0)
+        //        WeaponReload(loadoutDataArray[currentWeapon].weaponData);
+        //}
 
         //Calculate time Can Shoot
         if (shootTime >= 0f)
@@ -144,6 +144,7 @@ public class PlayerShooting : MonoBehaviour
             foreach (var VARIABLE in rb)
             {
                 VARIABLE.AddForce(firePointGO.forward * weaponData.bulletSpeed, ForceMode.Impulse);
+                VARIABLE.GetComponent<PlayerProjectile>().damageAmount = weaponData.damage;
             }
 
             if (weaponData.weaponType == WeaponData._weaponType.Pistol)

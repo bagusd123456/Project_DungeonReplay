@@ -43,7 +43,7 @@ public class EnemyHealth : MonoBehaviour
         if (isSinking)
         {
             //memindahkan object kebawah
-            //transform.Translate(-Vector3.up * sinkSpeed * Time.deltaTime);
+            transform.Translate(-Vector3.up * sinkSpeed * Time.deltaTime);
         }
     }
 
@@ -90,8 +90,8 @@ public class EnemyHealth : MonoBehaviour
         //anim.SetTrigger("Dead");
 
         //Play Sound Dead
-        enemyAudio.clip = deathClip;
-        enemyAudio.Play();
+        //enemyAudio.clip = deathClip;
+        //enemyAudio.Play();
         StartSinking();
     }
 
@@ -100,7 +100,7 @@ public class EnemyHealth : MonoBehaviour
         //disable Navmesh Component
         GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = false;
         //Set rigidbody ke kimematic
-        GetComponent<Rigidbody>().isKinematic = true;
+        //GetComponent<Rigidbody>().isKinematic = true;
         isSinking = true;
         //ScoreManager.score += scoreValue;
         Destroy(gameObject, 2f);

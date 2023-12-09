@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4592280110555425865}
   - component: {fileID: 7879209480760367560}
-  - component: {fileID: 8679070588014496669}
   - component: {fileID: 472608699363437970}
+  - component: {fileID: 6978313947088278875}
   - component: {fileID: 4399415061303852070}
   - component: {fileID: 7956908888060116690}
   - component: {fileID: 5296934541358231669}
@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 8152377842091413428}
   m_Layer: 0
   m_Name: EnemyTest (Repeler)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48,19 +48,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 557758169860979005}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!135 &8679070588014496669
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 557758169860979005}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &472608699363437970
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -103,6 +90,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!136 &6978313947088278875
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 557758169860979005}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2.5
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!195 &4399415061303852070
 NavMeshAgent:
   m_ObjectHideFlags: 0

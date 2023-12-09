@@ -12,12 +12,12 @@ GameObject:
   - component: {fileID: 5434927295138442775}
   - component: {fileID: 2222570396612456202}
   - component: {fileID: 3192193209250794695}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TRightUp_Var1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &7031571606454626979
 Transform:

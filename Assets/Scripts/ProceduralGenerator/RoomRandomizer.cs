@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.AI;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -19,17 +20,22 @@ public class RoomRandomizer : MonoBehaviour
     public void RandomSpawn()
     {
         //int randomIndex = Random.Range(0, roomPrefabList.Count);
-
+        if (tempRoom != this.gameObject)
+        {
+            tempRoom.SetActive(false);
+        }
         GameObject targetPrefab = ProbableElement.RandomWeightedElement(roomPrefabList).roomPrefab;
 
         var GO = Instantiate(targetPrefab, transform);
         GO.transform.position = transform.localPosition;
         tempRoom = GO;
 
-        if (tempRoom != this.gameObject)
-        {
-            tempRoom.SetActive(false);
-        }
+        GenerateNavMesh();
+    }
+
+    public void GenerateNavMesh()
+    {
+        NavMeshBuilder.BuildNavMesh();
     }
 }
 
