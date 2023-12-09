@@ -116,7 +116,7 @@ public class PlayerStateMachine : MonoBehaviour
     // Handles Player Rotation
     void HandleRotation()
     {
-        if (!_isAttacking)
+        if (!_isAttackPressed)
         {
             // Get Camera Relative Direction based on player input
             CameraRelativeControls(_currentMovementInput);
@@ -158,7 +158,7 @@ public class PlayerStateMachine : MonoBehaviour
     // Handles player Movements
     void HandleMovement()
     {
-        if (!_isAttacking)
+        if (!_isAttackPressed)
         {
             // Get Camera Relative Directions based on player input
             CameraRelativeControls(_appliedMovement);
@@ -205,15 +205,17 @@ public class PlayerStateMachine : MonoBehaviour
         // Adds Force to Player
         //_rigidBody.AddForce(transform.forward * _attackDashSpeed);
 
-        
+
 
         // After done attacking, return to idle state
-        _isAttacking = false;
+        //_isAttacking = false;
 
         if (_playerInput.Player.Movement.inProgress)
         {
             _isMovementPressed = true;
         }
+
+        
     }
 
     // Gives a short cooldown on Dashes

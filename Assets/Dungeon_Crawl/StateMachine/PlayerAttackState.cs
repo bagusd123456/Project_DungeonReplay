@@ -11,8 +11,6 @@ public class PlayerAttackState : PlayerBaseState
         Ctx.IsAttacking = true;
         Ctx.IsMovementPressed = false;
 
-        Ctx.AppliedMovementX = 0;
-        Ctx.AppliedMovementY = 0;
 
         Debug.Log("Iam attacking!");
         Ctx.Animator.SetTrigger("isAttacking");
@@ -31,16 +29,25 @@ public class PlayerAttackState : PlayerBaseState
 
     public override void CheckSwitchState()
     {
-        if (!Ctx.IsAttacking && !Ctx.IsMovementPressed)
+        if (!Ctx.IsAttackPressed)
         {
-            SwitchState(Factory.Idle());
-            Debug.Log("Iam exiting attack");
-        } else if (!Ctx.IsAttacking && Ctx.IsMovementPressed)
-        {
-            SwitchState(Factory.Run());
-            Debug.Log("Iam exiting attack");
+            Ctx.Animator.ResetTrigger("isAttacking");
 
+            if (!Ctx.IsMovementPressed)
+            {
+                SwitchState(Factory.Idle());
+                Debug.Log("Iam exiting attack");
+            }
+            else if (Ctx.IsMovementPressed)
+            {
+                SwitchState(Factory.Run());
+                Debug.Log("Iam exiting attack");
+            }
+        } else
+        {
+            SwitchState(Factory.Attack());
         }
+
     }
 
     // Logic for Player faces the mouse when clicking
