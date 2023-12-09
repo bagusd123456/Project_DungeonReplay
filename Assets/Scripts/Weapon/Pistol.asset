@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5a5f412d53d85aa4e857a3285ca6e25c, type: 3}
-  m_Name: Shotgun
+  m_Name: Pistol
   m_EditorClassIdentifier: 
-  weaponName: Shotgun
-  weaponImage: {fileID: 21300000, guid: bc5a1965be7b9f64e90963b82170727a, type: 3}
-  weaponType: 2
-  range: 2.4
+  weaponName: Pistol
+  weaponImage: {fileID: 0}
+  weaponType: 0
+  range: 10
   damage: 10
   ammoCapacity: 8
-  magazineCapacity: 24
+  magazineCapacity: 1000
   infMagazine: 0
-  fireRate: 0.5
+  fireRate: 0.2
   reloadSpeed: 0
-  projectile: {fileID: 6428009189495940825, guid: fbcb3dc13e7436c469be27e964abee16,
+  projectile: {fileID: 6428009189495940825, guid: 079f85db5c7c3a142851ddaa91f12f28,
     type: 3}
-  bulletSpeed: 35
+  bulletSpeed: 25

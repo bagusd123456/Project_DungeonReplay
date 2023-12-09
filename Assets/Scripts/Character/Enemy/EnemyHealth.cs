@@ -55,7 +55,7 @@ public class EnemyHealth : MonoBehaviour
             return;
 
         //play audio
-        enemyAudio.Play();
+        //enemyAudio.Play();
 
         //kurangi health
         currentHealth -= amount;

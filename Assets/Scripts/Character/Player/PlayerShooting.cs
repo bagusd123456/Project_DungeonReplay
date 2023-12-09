@@ -23,7 +23,6 @@ public class PlayerShooting : MonoBehaviour
 
     [Header("Projectile")]
     public List<GameObject> _projectileList;
-    [HideInInspector]
     public int currentWeapon;
     public Transform firePointGO;
     [Space]
@@ -63,6 +62,8 @@ public class PlayerShooting : MonoBehaviour
             loadoutDataArray[currentWeapon].weaponName = weapon.name;
             loadoutDataArray[currentWeapon].ammo = weapon.ammoCapacity;
             loadoutDataArray[currentWeapon].magazine = weapon.magazineCapacity;
+
+            WeaponSetup();
         }
 
         if(_animator == null)
@@ -97,21 +98,21 @@ public class PlayerShooting : MonoBehaviour
     {
         WeaponSwitch();
 
-        //On Hold Left Click
-        if (Mouse.current.leftButton.wasPressedThisFrame)
-        {
-            //Shoot(_projectileList[currentWeapon]);
-            if (loadoutDataArray.Count > 0)
-                Shootv2(loadoutDataArray[currentWeapon].weaponData);
-        }
+        ////On Hold Left Click
+        //if (Mouse.current.leftButton.wasPressedThisFrame)
+        //{
+        //    //Shoot(_projectileList[currentWeapon]);
+        //    if (loadoutDataArray.Count > 0)
+        //        Shootv2(loadoutDataArray[currentWeapon].weaponData);
+        //}
 
-        //On Press Right Click
-        if (Mouse.current.rightButton.isPressed)
-        {
-            //Shoot(_projectileList[currentWeapon]);
-            if (loadoutDataArray.Count > 0)
-                Shootv2(loadoutDataArray[currentWeapon].weaponData);
-        }
+        ////On Press Right Click
+        //if (Mouse.current.rightButton.isPressed)
+        //{
+        //    //Shoot(_projectileList[currentWeapon]);
+        //    if (loadoutDataArray.Count > 0)
+        //        Shootv2(loadoutDataArray[currentWeapon].weaponData);
+        //}
 
         if (Keyboard.current.rKey.wasPressedThisFrame)
         {
@@ -124,15 +125,26 @@ public class PlayerShooting : MonoBehaviour
             shootTime -= Time.deltaTime;
     }
 
+    public void TriggerShoot()
+    {
+        if(loadoutDataArray.Count > 0)
+            Shootv2(loadoutDataArray[currentWeapon].weaponData);
+    }
+
     void Shootv2(WeaponData weaponData)
     {
 
         if (loadoutDataArray[currentWeapon].ammo > 0 && shootTime < 0f)
         {
+            loadoutDataArray[currentWeapon].ammo--;
             shootTime = weaponData.fireRate;
 
-            shootRay.origin = firePointGO.transform.position;
-            shootRay.direction = transform.forward;
+            var Bullet = Instantiate(weaponData.projectile, firePointGO.position, firePointGO.rotation);
+            Rigidbody[] rb = Bullet.GetComponentsInChildren<Rigidbody>();
+            foreach (var VARIABLE in rb)
+            {
+                VARIABLE.AddForce(firePointGO.forward * weaponData.bulletSpeed, ForceMode.Impulse);
+            }
 
             if (weaponData.weaponType == WeaponData._weaponType.Pistol)
             {
@@ -149,11 +161,13 @@ public class PlayerShooting : MonoBehaviour
                 ShootAR(weaponData);
             }
 
-            loadoutDataArray[currentWeapon].ammo--;
-            var Bullet = Instantiate(weaponData.projectile, firePointGO.position, firePointGO.rotation);
-            Rigidbody rb = Bullet.GetComponent<Rigidbody>();
-            rb.AddForce(firePointGO.forward * weaponData.bulletSpeed, ForceMode.Impulse);
+            
             _animator.SetTrigger("Shoot"); //Play Animation
+        }
+
+        else
+        {
+            WeaponReload(loadoutDataArray[currentWeapon].weaponData);
         }
     }
 
@@ -234,7 +248,6 @@ public class PlayerShooting : MonoBehaviour
                 currentWeapon = 3;
             }
 
-            _animator.SetInteger("Weapon", currentWeapon); //Set Hold Animation
             //InGameMenuController.Instance.UpdateAmmoInfo();
             WeaponUpdateData();
         }
@@ -258,7 +271,12 @@ public class PlayerShooting : MonoBehaviour
 
         //Gizmos.DrawWireSphere(transform.position, range);
         if (loadoutDataArray.Count > 0)
+        {
+            if (loadoutDataArray[currentWeapon].weaponData == null) return;
+
             if (loadoutDataArray[currentWeapon].weaponData.weaponType == WeaponData._weaponType.Shotgun)
                 Gizmos.DrawWireCube(firePointGO.transform.position + (transform.forward * 2f), transform.localScale * range);
+        }
+            
     }
 }

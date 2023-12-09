@@ -107,6 +107,7 @@ public class EnemyAttack : MonoBehaviour
                         EnemyProjectile[] projectileGOs = projectileGO.GetComponentsInChildren<EnemyProjectile>();
                         foreach (var VARIABLE in projectileGOs)
                         {
+                            VARIABLE.enemyAttack = this;
                             VARIABLE.GetComponent<Rigidbody>().AddForce(firePoint.forward * 2, ForceMode.Impulse);
                         }
 

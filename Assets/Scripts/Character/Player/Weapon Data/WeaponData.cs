@@ -24,9 +24,4 @@ public class WeaponData : ScriptableObject
     [Header("Weapon Projectile")]
     public GameObject projectile;
     public float bulletSpeed = 70f;
-
-    [Header("Weapon Camera Shake")]
-    public bool shakeActive;
-
-
 }

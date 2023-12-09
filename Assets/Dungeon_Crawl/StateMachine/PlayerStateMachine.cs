@@ -218,6 +218,12 @@ public class PlayerStateMachine : MonoBehaviour
         
     }
 
+    // Trigger Spawn Projectile Event
+    void SpawnProjectile()
+    {
+        PlayerShooting.Instance.TriggerShoot();
+    }
+
     // Gives a short cooldown on Dashes
     IEnumerator DashCooldown()
     {

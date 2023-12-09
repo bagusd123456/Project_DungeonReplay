@@ -18,7 +18,6 @@ public class RoomRandomizer : MonoBehaviour
     [ContextMenu("Random Spawn")]
     public void RandomSpawn()
     {
-        tempRoom.SetActive(false);
         //int randomIndex = Random.Range(0, roomPrefabList.Count);
 
         GameObject targetPrefab = ProbableElement.RandomWeightedElement(roomPrefabList).roomPrefab;
@@ -26,6 +25,11 @@ public class RoomRandomizer : MonoBehaviour
         var GO = Instantiate(targetPrefab, transform);
         GO.transform.position = transform.localPosition;
         tempRoom = GO;
+
+        if (tempRoom != this.gameObject)
+        {
+            tempRoom.SetActive(false);
+        }
     }
 }
 
