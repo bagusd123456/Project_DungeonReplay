@@ -174,7 +174,7 @@ MonoBehaviour:
   anim: {fileID: 0}
   nav: {fileID: 0}
   speed: 0
-  sightDistance: 6
+  sightDistance: 20
   stop: 0
   onSight: 0
 --- !u!114 &2278375009679316399
@@ -192,7 +192,7 @@ MonoBehaviour:
   _attackType: 2
   projectile: {fileID: 0}
   firePoint: {fileID: 0}
-  attackRadius: 2
+  attackRadius: 10
   timeBetweenAttacks: 0.5
   attackDamage: 10
   projectileSpeed: 5

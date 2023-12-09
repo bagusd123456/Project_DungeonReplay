@@ -218,7 +218,7 @@ MonoBehaviour:
   anim: {fileID: 0}
   nav: {fileID: 0}
   speed: 0
-  sightDistance: 7
+  sightDistance: 20
   stop: 0
   onSight: 0
 --- !u!114 &5808886543717091155
