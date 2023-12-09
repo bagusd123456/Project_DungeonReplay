@@ -16,7 +16,7 @@ MonoBehaviour:
   weaponImage: {fileID: 21300000, guid: bc5a1965be7b9f64e90963b82170727a, type: 3}
   weaponType: 2
   range: 2.4
-  damage: 50
+  damage: 20
   ammoCapacity: 8
   magazineCapacity: 24
   infMagazine: 0
@@ -24,4 +24,4 @@ MonoBehaviour:
   reloadSpeed: 0
   projectile: {fileID: 6428009189495940825, guid: fbcb3dc13e7436c469be27e964abee16,
     type: 3}
-  bulletSpeed: 35
+  bulletSpeed: 25

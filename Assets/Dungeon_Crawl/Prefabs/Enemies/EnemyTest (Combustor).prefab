@@ -58,9 +58,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.89000005
-  m_Height: 2.9982316
+  m_Height: 3.3887687
   m_Direction: 1
-  m_Center: {x: 0, y: 0.24911542, z: -0.44999996}
+  m_Center: {x: 0, y: 0.444384, z: -0.44999996}
 --- !u!195 &2491134130400996594
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -132,7 +132,7 @@ MonoBehaviour:
   anim: {fileID: 0}
   nav: {fileID: 0}
   speed: 0
-  sightDistance: 15
+  sightDistance: 10
   stop: 0
   onSight: 0
 --- !u!114 &2278375009679316399
@@ -154,7 +154,7 @@ MonoBehaviour:
   firePoint: {fileID: 0}
   attackRadius: 5
   timeBetweenAttacks: 0.5
-  attackDamage: 35
+  attackDamage: 15
   projectileSpeed: 5
   layer:
     serializedVersion: 2

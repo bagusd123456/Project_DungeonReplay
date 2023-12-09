@@ -54,7 +54,7 @@ public class PlayerDashState : PlayerBaseState
 
     void HandleDash()
     {
-        Ctx.Rigidbody.AddForce(Ctx.transform.forward * Ctx.DashSpeed * Time.deltaTime, ForceMode.Impulse);
+        Ctx.Rigidbody.AddForce(Ctx.transform.forward * Ctx.DashSpeed, ForceMode.Impulse);
         //Ctx.IsDashing = false;
     }
 }

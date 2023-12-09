@@ -167,7 +167,7 @@ MonoBehaviour:
   anim: {fileID: 0}
   nav: {fileID: 0}
   speed: 0
-  sightDistance: 20
+  sightDistance: 15
   stop: 0
   onSight: 0
 --- !u!114 &5808886543717091155
@@ -186,14 +186,14 @@ MonoBehaviour:
   projectile: {fileID: 3033359904775966780}
   explosionParticle: {fileID: 0}
   firePoint: {fileID: 0}
-  attackRadius: 4
+  attackRadius: 8
   timeBetweenAttacks: 4
   attackDamage: 5
   projectileSpeed: 5
   layer:
     serializedVersion: 2
     m_Bits: 64
-  distance: 7
+  distance: 8
   playerHealth: {fileID: 0}
   playerInRange: 0
   timer: 0
@@ -593,7 +593,7 @@ PrefabInstance:
     - target: {fileID: 917398076329797156, guid: c7671effa572cc44db1bbb9f6348c1b0,
         type: 3}
       propertyPath: damageAmount
-      value: 10
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 917398076329797158, guid: c7671effa572cc44db1bbb9f6348c1b0,
         type: 3}

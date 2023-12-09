@@ -520,11 +520,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5438274945437738982, guid: a3a371c2c08813e4cb7caac57a90d6ab,
-        type: 3}
-      propertyPath: _dashSpeed
-      value: 2.5
-      objectReference: {fileID: 0}
     - target: {fileID: 5438274945437738987, guid: a3a371c2c08813e4cb7caac57a90d6ab,
         type: 3}
       propertyPath: m_Name
