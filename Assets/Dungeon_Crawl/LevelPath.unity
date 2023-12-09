@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -522,13 +522,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tempRoom: {fileID: 182729440}
   roomPrefabList:
-  - roomPrefab: {fileID: 7184909218473735768, guid: fe0f6278ffc1b42cba25cc91ff0ac66c,
+  - roomPrefab: {fileID: 3378202723724131281, guid: 20b6a8e467ced4817aff38e34b928da6,
       type: 3}
     probability: 10
-  - roomPrefab: {fileID: 7184909218473735768, guid: 9ae2c54418aef477cb820948c2e75c0b,
+  - roomPrefab: {fileID: 3378202723724131281, guid: 50ca36b760424405a8e972b2460f7338,
       type: 3}
     probability: 10
-  - roomPrefab: {fileID: 7184909218473735768, guid: de6fc15c0df11486e8d3758f11cc13bc,
+  - roomPrefab: {fileID: 3378202723724131281, guid: 47b076f9bfea74432ab5bf111902b611,
       type: 3}
     probability: 10
 --- !u!1 &253062785 stripped
@@ -580,13 +580,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tempRoom: {fileID: 269478749}
   roomPrefabList:
-  - roomPrefab: {fileID: 7326272675368413106, guid: bd00e2c1ace0e4746ad145c7bbddbe4a,
+  - roomPrefab: {fileID: 7184909218473735768, guid: fe0f6278ffc1b42cba25cc91ff0ac66c,
       type: 3}
     probability: 10
-  - roomPrefab: {fileID: 5603055897059483632, guid: 353d31e095a1e483abf8184969cfcb63,
+  - roomPrefab: {fileID: 7184909218473735768, guid: 9ae2c54418aef477cb820948c2e75c0b,
       type: 3}
     probability: 10
-  - roomPrefab: {fileID: 3232778499205783161, guid: 02597a6e66201408389f8a78f58d695d,
+  - roomPrefab: {fileID: 7184909218473735768, guid: de6fc15c0df11486e8d3758f11cc13bc,
       type: 3}
     probability: 10
 --- !u!1 &330585543
@@ -762,13 +762,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tempRoom: {fileID: 404321974}
   roomPrefabList:
-  - roomPrefab: {fileID: 5919100479303926900, guid: 95f076c9ec5b24342aeab1ef0213907b,
+  - roomPrefab: {fileID: 7326272675368413106, guid: bd00e2c1ace0e4746ad145c7bbddbe4a,
       type: 3}
     probability: 10
-  - roomPrefab: {fileID: 2988121595753029849, guid: f1b22036ea2164c579bc6dc50af2fc61,
+  - roomPrefab: {fileID: 5603055897059483632, guid: 353d31e095a1e483abf8184969cfcb63,
       type: 3}
     probability: 10
-  - roomPrefab: {fileID: 5442602561218565380, guid: 6a84d098c4a37478d997dcd066c231e7,
+  - roomPrefab: {fileID: 3232778499205783161, guid: 02597a6e66201408389f8a78f58d695d,
       type: 3}
     probability: 10
 --- !u!1 &410087039
@@ -906,13 +906,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tempRoom: {fileID: 464204820}
   roomPrefabList:
-  - roomPrefab: {fileID: 7326272675368413106, guid: bd00e2c1ace0e4746ad145c7bbddbe4a,
+  - roomPrefab: {fileID: 7184909218473735768, guid: fe0f6278ffc1b42cba25cc91ff0ac66c,
       type: 3}
     probability: 10
-  - roomPrefab: {fileID: 5603055897059483632, guid: 353d31e095a1e483abf8184969cfcb63,
+  - roomPrefab: {fileID: 7184909218473735768, guid: 9ae2c54418aef477cb820948c2e75c0b,
       type: 3}
     probability: 10
-  - roomPrefab: {fileID: 3232778499205783161, guid: 02597a6e66201408389f8a78f58d695d,
+  - roomPrefab: {fileID: 7184909218473735768, guid: de6fc15c0df11486e8d3758f11cc13bc,
       type: 3}
     probability: 10
 --- !u!1 &507253121 stripped
@@ -1064,13 +1064,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tempRoom: {fileID: 628251143}
   roomPrefabList:
-  - roomPrefab: {fileID: 3378202723724131281, guid: 9d53f9aab039d4cefb20746f5e095a4b,
+  - roomPrefab: {fileID: 7184909218473735768, guid: 3cc65b2f573854e4984134408e127cef,
       type: 3}
     probability: 10
-  - roomPrefab: {fileID: 3378202723724131281, guid: 24dae7339c40f4934975c1352bdf2340,
+  - roomPrefab: {fileID: 7184909218473735768, guid: f990ee5bbe1e741acb645d84cd15267c,
       type: 3}
     probability: 10
-  - roomPrefab: {fileID: 3378202723724131281, guid: c0c46f06b3d924af7b7acc1a08ecf3c6,
+  - roomPrefab: {fileID: 7184909218473735768, guid: b37c7e3ba72e3466294e4b10b63324d5,
       type: 3}
     probability: 10
 --- !u!1 &630802125 stripped
@@ -1419,13 +1419,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tempRoom: {fileID: 989402529}
   roomPrefabList:
-  - roomPrefab: {fileID: 5919100479303926900, guid: 95f076c9ec5b24342aeab1ef0213907b,
+  - roomPrefab: {fileID: 7326272675368413106, guid: bd00e2c1ace0e4746ad145c7bbddbe4a,
       type: 3}
     probability: 10
-  - roomPrefab: {fileID: 2988121595753029849, guid: f1b22036ea2164c579bc6dc50af2fc61,
+  - roomPrefab: {fileID: 5603055897059483632, guid: 353d31e095a1e483abf8184969cfcb63,
       type: 3}
     probability: 10
-  - roomPrefab: {fileID: 5442602561218565380, guid: 6a84d098c4a37478d997dcd066c231e7,
+  - roomPrefab: {fileID: 3232778499205783161, guid: 02597a6e66201408389f8a78f58d695d,
       type: 3}
     probability: 10
 --- !u!1 &1052888459 stripped
@@ -1448,13 +1448,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tempRoom: {fileID: 1052888459}
   roomPrefabList:
-  - roomPrefab: {fileID: 3378202723724131281, guid: 9d53f9aab039d4cefb20746f5e095a4b,
+  - roomPrefab: {fileID: 6018237385235641018, guid: c252385c59e354141b792f442ca6c57a,
       type: 3}
     probability: 10
-  - roomPrefab: {fileID: 3378202723724131281, guid: 24dae7339c40f4934975c1352bdf2340,
+  - roomPrefab: {fileID: 6018237385235641018, guid: afd0efd59242b4124a333eb2a353e396,
       type: 3}
     probability: 10
-  - roomPrefab: {fileID: 3378202723724131281, guid: c0c46f06b3d924af7b7acc1a08ecf3c6,
+  - roomPrefab: {fileID: 6018237385235641018, guid: 34cd88289d97a42f9847c98f9b3d4b6c,
       type: 3}
     probability: 10
 --- !u!1 &1109041204 stripped
@@ -1477,13 +1477,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tempRoom: {fileID: 1109041204}
   roomPrefabList:
-  - roomPrefab: {fileID: 5383244375736974430, guid: 88b03df6f9414415b821647af07cb9c7,
+  - roomPrefab: {fileID: 6018237385235641018, guid: c252385c59e354141b792f442ca6c57a,
       type: 3}
     probability: 10
-  - roomPrefab: {fileID: 6406839598251347332, guid: e08209205b09144a1bc1776ab69149ac,
+  - roomPrefab: {fileID: 6018237385235641018, guid: afd0efd59242b4124a333eb2a353e396,
       type: 3}
     probability: 10
-  - roomPrefab: {fileID: 8823186228645427277, guid: a4343ad294b084364a644f8954dfae91,
+  - roomPrefab: {fileID: 6018237385235641018, guid: 34cd88289d97a42f9847c98f9b3d4b6c,
       type: 3}
     probability: 10
 --- !u!1 &1164603215 stripped
@@ -1535,13 +1535,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tempRoom: {fileID: 1296261721}
   roomPrefabList:
-  - roomPrefab: {fileID: 5919100479303926900, guid: 95f076c9ec5b24342aeab1ef0213907b,
+  - roomPrefab: {fileID: 7326272675368413106, guid: bd00e2c1ace0e4746ad145c7bbddbe4a,
       type: 3}
     probability: 10
-  - roomPrefab: {fileID: 2988121595753029849, guid: f1b22036ea2164c579bc6dc50af2fc61,
+  - roomPrefab: {fileID: 5603055897059483632, guid: 353d31e095a1e483abf8184969cfcb63,
       type: 3}
     probability: 10
-  - roomPrefab: {fileID: 5442602561218565380, guid: 6a84d098c4a37478d997dcd066c231e7,
+  - roomPrefab: {fileID: 3232778499205783161, guid: 02597a6e66201408389f8a78f58d695d,
       type: 3}
     probability: 10
 --- !u!1 &1342914466 stripped
@@ -1593,13 +1593,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tempRoom: {fileID: 1380347541}
   roomPrefabList:
-  - roomPrefab: {fileID: 7184909218473735768, guid: fe0f6278ffc1b42cba25cc91ff0ac66c,
+  - roomPrefab: {fileID: 3378202723724131281, guid: 20b6a8e467ced4817aff38e34b928da6,
       type: 3}
     probability: 10
-  - roomPrefab: {fileID: 7184909218473735768, guid: 9ae2c54418aef477cb820948c2e75c0b,
+  - roomPrefab: {fileID: 3378202723724131281, guid: 50ca36b760424405a8e972b2460f7338,
       type: 3}
     probability: 10
-  - roomPrefab: {fileID: 7184909218473735768, guid: de6fc15c0df11486e8d3758f11cc13bc,
+  - roomPrefab: {fileID: 3378202723724131281, guid: 47b076f9bfea74432ab5bf111902b611,
       type: 3}
     probability: 10
 --- !u!1001 &1380540367
@@ -1749,13 +1749,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tempRoom: {fileID: 1550041167}
   roomPrefabList:
-  - roomPrefab: {fileID: 7326272675368413106, guid: bd00e2c1ace0e4746ad145c7bbddbe4a,
+  - roomPrefab: {fileID: 7184909218473735768, guid: fe0f6278ffc1b42cba25cc91ff0ac66c,
       type: 3}
     probability: 10
-  - roomPrefab: {fileID: 5603055897059483632, guid: 353d31e095a1e483abf8184969cfcb63,
+  - roomPrefab: {fileID: 7184909218473735768, guid: 9ae2c54418aef477cb820948c2e75c0b,
       type: 3}
     probability: 10
-  - roomPrefab: {fileID: 3232778499205783161, guid: 02597a6e66201408389f8a78f58d695d,
+  - roomPrefab: {fileID: 7184909218473735768, guid: de6fc15c0df11486e8d3758f11cc13bc,
       type: 3}
     probability: 10
 --- !u!1 &1612331323 stripped
@@ -1778,13 +1778,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tempRoom: {fileID: 1612331323}
   roomPrefabList:
-  - roomPrefab: {fileID: 7184909218473735768, guid: fe0f6278ffc1b42cba25cc91ff0ac66c,
+  - roomPrefab: {fileID: 3378202723724131281, guid: 20b6a8e467ced4817aff38e34b928da6,
       type: 3}
     probability: 10
-  - roomPrefab: {fileID: 7184909218473735768, guid: 9ae2c54418aef477cb820948c2e75c0b,
+  - roomPrefab: {fileID: 3378202723724131281, guid: 50ca36b760424405a8e972b2460f7338,
       type: 3}
     probability: 10
-  - roomPrefab: {fileID: 7184909218473735768, guid: de6fc15c0df11486e8d3758f11cc13bc,
+  - roomPrefab: {fileID: 3378202723724131281, guid: 47b076f9bfea74432ab5bf111902b611,
       type: 3}
     probability: 10
 --- !u!1 &1655892274 stripped
@@ -1807,13 +1807,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tempRoom: {fileID: 1655892274}
   roomPrefabList:
-  - roomPrefab: {fileID: 7326272675368413106, guid: bd00e2c1ace0e4746ad145c7bbddbe4a,
+  - roomPrefab: {fileID: 7184909218473735768, guid: f92de38e9ab5a478e8f9c882ded34ee9,
       type: 3}
     probability: 10
-  - roomPrefab: {fileID: 5603055897059483632, guid: 353d31e095a1e483abf8184969cfcb63,
+  - roomPrefab: {fileID: 7184909218473735768, guid: c47727018bfb845d8aff3c062e273312,
       type: 3}
     probability: 10
-  - roomPrefab: {fileID: 3232778499205783161, guid: 02597a6e66201408389f8a78f58d695d,
+  - roomPrefab: {fileID: 7184909218473735768, guid: fd8eee7a1ed3b466e9254ae456b631ba,
       type: 3}
     probability: 10
 --- !u!1 &1883695147 stripped
@@ -1836,13 +1836,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tempRoom: {fileID: 1883695147}
   roomPrefabList:
-  - roomPrefab: {fileID: 7326272675368413106, guid: bd00e2c1ace0e4746ad145c7bbddbe4a,
+  - roomPrefab: {fileID: 7184909218473735768, guid: f92de38e9ab5a478e8f9c882ded34ee9,
       type: 3}
     probability: 10
-  - roomPrefab: {fileID: 5603055897059483632, guid: 353d31e095a1e483abf8184969cfcb63,
+  - roomPrefab: {fileID: 7184909218473735768, guid: c47727018bfb845d8aff3c062e273312,
       type: 3}
     probability: 10
-  - roomPrefab: {fileID: 3232778499205783161, guid: 02597a6e66201408389f8a78f58d695d,
+  - roomPrefab: {fileID: 7184909218473735768, guid: fd8eee7a1ed3b466e9254ae456b631ba,
       type: 3}
     probability: 10
 --- !u!1 &2027240551 stripped
@@ -1923,13 +1923,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tempRoom: {fileID: 2064858233}
   roomPrefabList:
-  - roomPrefab: {fileID: 6018237385235641018, guid: c252385c59e354141b792f442ca6c57a,
+  - roomPrefab: {fileID: 7184909218473735768, guid: 3cc65b2f573854e4984134408e127cef,
       type: 3}
     probability: 10
-  - roomPrefab: {fileID: 6018237385235641018, guid: afd0efd59242b4124a333eb2a353e396,
+  - roomPrefab: {fileID: 7184909218473735768, guid: f990ee5bbe1e741acb645d84cd15267c,
       type: 3}
     probability: 10
-  - roomPrefab: {fileID: 6018237385235641018, guid: 34cd88289d97a42f9847c98f9b3d4b6c,
+  - roomPrefab: {fileID: 7184909218473735768, guid: b37c7e3ba72e3466294e4b10b63324d5,
       type: 3}
     probability: 10
 --- !u!1 &2111565627 stripped
@@ -1952,13 +1952,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tempRoom: {fileID: 2111565627}
   roomPrefabList:
-  - roomPrefab: {fileID: 3378202723724131281, guid: 9d53f9aab039d4cefb20746f5e095a4b,
+  - roomPrefab: {fileID: 6018237385235641018, guid: c252385c59e354141b792f442ca6c57a,
       type: 3}
     probability: 10
-  - roomPrefab: {fileID: 3378202723724131281, guid: 24dae7339c40f4934975c1352bdf2340,
+  - roomPrefab: {fileID: 6018237385235641018, guid: afd0efd59242b4124a333eb2a353e396,
       type: 3}
     probability: 10
-  - roomPrefab: {fileID: 3378202723724131281, guid: c0c46f06b3d924af7b7acc1a08ecf3c6,
+  - roomPrefab: {fileID: 6018237385235641018, guid: 34cd88289d97a42f9847c98f9b3d4b6c,
       type: 3}
     probability: 10
 --- !u!1001 &7996187975203177991
