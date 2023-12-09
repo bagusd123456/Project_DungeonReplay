@@ -39,5 +39,10 @@ public class PlayerIdleState : PlayerBaseState
         {
             SwitchState(Factory.Attack());
         }
+
+        if (Ctx.PlayerHealth.damaged)
+        {
+            SwitchState(Factory.Hit());
+        }
     }
 }

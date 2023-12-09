@@ -17,7 +17,12 @@ public class PlayerRunState : PlayerBaseState
         CheckSwitchState();
     }
 
-    public override void ExitState() { }
+    public override void ExitState() {
+        Ctx.AppliedMovementX = 0;
+        Ctx.AppliedMovementY = 0;
+        
+
+    }
 
     public override void InitializeSubState() { }
 
@@ -25,6 +30,8 @@ public class PlayerRunState : PlayerBaseState
         if (Ctx.IsAttackPressed)
         {
             SwitchState(Factory.Attack());
+            Ctx.Animator.SetBool("isWalking", false);
+
         }
 
         if (!Ctx.IsMovementPressed)
@@ -40,6 +47,12 @@ public class PlayerRunState : PlayerBaseState
             SwitchState(Factory.SwitchWeapon());
         }
 
-        
+        if (Ctx.PlayerHealth.damaged)
+        {
+            SwitchState(Factory.Hit());
+            Ctx.Animator.SetBool("isWalking", false);
+        }
+
+
     }
 }

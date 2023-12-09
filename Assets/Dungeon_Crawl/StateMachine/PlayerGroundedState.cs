@@ -42,6 +42,11 @@ public class PlayerGroundedState : PlayerBaseState
         {
             SetSubState(Factory.Attack());
         }
+
+        if (Ctx.PlayerHealth.damaged)
+        {
+            SetSubState(Factory.Hit());
+        }
     }
 
     public override void CheckSwitchState()

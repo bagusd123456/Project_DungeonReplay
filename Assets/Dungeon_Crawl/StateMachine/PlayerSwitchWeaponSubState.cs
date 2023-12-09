@@ -36,6 +36,11 @@ public class PlayerSwitchWeaponSubState : PlayerBaseState
                 SwitchState(Factory.Run());
             }
         }
+
+        if (Ctx.PlayerHealth.damaged)
+        {
+            SwitchState(Factory.Hit());
+        }
     }
 
     void SwitchToWeapon()

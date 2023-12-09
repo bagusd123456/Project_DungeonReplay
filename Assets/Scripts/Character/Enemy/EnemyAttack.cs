@@ -12,6 +12,7 @@ public class EnemyAttack : MonoBehaviour
     public float attackRadius = 1.3f;
     public float timeBetweenAttacks = 0.5f;
     public int attackDamage = 10;
+    public float projectileSpeed = 5;
     public LayerMask layer;
 
     public float distance;
@@ -108,7 +109,7 @@ public class EnemyAttack : MonoBehaviour
                         foreach (var VARIABLE in projectileGOs)
                         {
                             VARIABLE.enemyAttack = this;
-                            VARIABLE.GetComponent<Rigidbody>().AddForce(firePoint.forward * 2, ForceMode.Impulse);
+                            VARIABLE.GetComponent<Rigidbody>().AddForce(firePoint.forward * projectileSpeed, ForceMode.Impulse);
                         }
 
                         //projectileGO.GetComponent<Rigidbody>().AddForce(firePoint.forward * Mathf.Sqrt(distance) * 2 + firePoint.up * Mathf.Sqrt(distance) * 2, ForceMode.Impulse);

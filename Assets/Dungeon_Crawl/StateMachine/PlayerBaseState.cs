@@ -28,14 +28,14 @@ public abstract class PlayerBaseState
         }
     }
 
-    /*public void ExitStates()
+    public void ExitStates()
     {
         ExitState();
         if (_currentSubState != null)
         {
             _currentSubState.ExitState();
         }
-    }*/
+    }
 
     protected void SwitchState(PlayerBaseState newState)
     {

@@ -15,6 +15,7 @@ public class PlayerStateMachine : MonoBehaviour
     Animator _animator;
     Camera _camera;
     PlayerShooting _playerShootingScript;
+    PlayerHealth _playerHealth;
 
     // variables to store player input values
     Vector2 _currentMovementInput;
@@ -27,6 +28,8 @@ public class PlayerStateMachine : MonoBehaviour
     bool _isAbleToDash = true;
     bool _isSwitchingWeapon = false;
     float _currentWeapon = 1;
+    bool isMovementPerformed = false;
+    bool _isDead = false;
 
 
     // variables responsible for player movements
@@ -53,6 +56,7 @@ public class PlayerStateMachine : MonoBehaviour
 
     // getters and setters
     #region getters and setters
+    
     public Animator Animator { get { return _animator; } }
     public Rigidbody Rigidbody { get { return _rigidBody; } set { _rigidBody = value; } }
     public Camera Camera { get { return _camera; } }
@@ -69,10 +73,13 @@ public class PlayerStateMachine : MonoBehaviour
     public float CurrentWeapon { get { return _currentWeapon; } }
     public Vector2 CurrentMovementInput { get { return _currentMovementInput; } }
     public PlayerShooting PlayerShootingScript { get { return _playerShootingScript; } }
+    public PlayerHealth PlayerHealth { get { return _playerHealth; } set { _playerHealth = value; } }
     public float AppliedMovementX { get { return _appliedMovement.x; } set { _appliedMovement.x = value; } }
     public float AppliedMovementY { get { return _appliedMovement.y; } set { _appliedMovement.y = value; } }
     public float CamRayLength { get { return _camRayLength; } set { _camRayLength = value; } }
     public LayerMask FloorMask { get { return _groundMask; } set { _groundMask = value; } }
+
+    public bool IsDead { get { return _isDead; } set { _isDead = value; } }
     #endregion
     private void Awake()
     {
@@ -83,6 +90,7 @@ public class PlayerStateMachine : MonoBehaviour
         _animator = GetComponent<Animator>();
         _camera = Camera.main;
         _playerShootingScript = GetComponent<PlayerShooting>();
+        _playerHealth = GetComponent<PlayerHealth>();
 
         // setup state
         _states = new PlayerStateFactory(this);
@@ -100,21 +108,28 @@ public class PlayerStateMachine : MonoBehaviour
         _playerInput.Player.SwitchWeapon.started += OnWeaponSwitchInput;
         _playerInput.Player.SwitchWeapon.started += OnSwitchWeaponCheck;
         _playerInput.Player.SwitchWeapon.canceled += OnSwitchWeaponCheck;
-
     }
 
     // Update is called once per frame
     void Update()
     {
         _currentState.UpdateStates();
-        HandleRotation();
+        if (!_isDead)
+        {
+            HandleRotation();
+            _isMovementPressed = _playerInput.Player.Movement.inProgress;
+        }
         
     }
 
     private void FixedUpdate()
     {
-        // Calls the Movement Logic
-        HandleMovement();
+        if (!_isDead)
+        {
+            // Calls the Movement Logic
+            HandleMovement();
+        }
+        
     }
 
     // Handles Player Rotation
@@ -204,7 +219,7 @@ public class PlayerStateMachine : MonoBehaviour
     }
 
     // Gives a short momentum boost when idle attacking
-    void IdleAttackMomentum()
+    void CheckMovementIsPressed()
     {
         // Adds Force to Player
         //_rigidBody.AddForce(transform.forward * _attackDashSpeed);
@@ -214,10 +229,13 @@ public class PlayerStateMachine : MonoBehaviour
         // After done attacking, return to idle state
         //_isAttacking = false;
 
-        if (_playerInput.Player.Movement.inProgress)
+        /*if (_playerInput.Player.Movement.inProgress)
         {
             _isMovementPressed = true;
-        }
+            Debug.Log("i should be running now");
+
+        }*/
+
     }
 
     // Trigger Spawn Projectile Event
@@ -243,7 +261,7 @@ public class PlayerStateMachine : MonoBehaviour
     void OnMovementInput(InputAction.CallbackContext context)
     {
         _currentMovementInput = context.ReadValue<Vector2>();
-        _isMovementPressed = _currentMovementInput.x != 0 || _currentMovementInput.y != 0;
+        //_isMovementPressed = _currentMovementInput.x != 0 || _currentMovementInput.y != 0;
     }
 
     void OnDashInput(InputAction.CallbackContext context)

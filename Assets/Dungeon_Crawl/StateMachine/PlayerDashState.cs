@@ -39,6 +39,11 @@ public class PlayerDashState : PlayerBaseState
         {
             SwitchState(Factory.SwitchWeapon());
         }
+
+        if (Ctx.PlayerHealth.damaged)
+        {
+            SwitchState(Factory.Hit());
+        }
     }
 
     void HandleDash()

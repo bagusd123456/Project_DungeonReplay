@@ -63,11 +63,12 @@ public class PlayerHealth : MonoBehaviour
         //Memainkan suara ketika terkena damage
         playerAudio.Play();
 
-        //Memanggil method Death() jika darahnya kurang dari sama dengan 10 dan belu mati
+        //damaged = false;
+        /*//Memanggil method Death() jika darahnya kurang dari sama dengan 10 dan belu mati
         if (currentHealth <= 0 && !isDead)
         {
             Death();
-        }
+        }*/
     }
 
 

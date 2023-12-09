@@ -9,7 +9,6 @@ public class PlayerAttackState : PlayerBaseState
     public override void EnterState()
     {
         Ctx.IsAttacking = true;
-        Ctx.IsMovementPressed = false;
 
 
         Debug.Log("Iam attacking!");
@@ -19,11 +18,13 @@ public class PlayerAttackState : PlayerBaseState
     public override void UpdateState()
     {
         //FaceMouse();
-
+        
         CheckSwitchState();
     }
 
-    public override void ExitState() { }
+    public override void ExitState() {
+        
+    }
 
     public override void InitializeSubState() { }
 
@@ -33,19 +34,24 @@ public class PlayerAttackState : PlayerBaseState
         {
             Ctx.Animator.ResetTrigger("isAttacking");
 
-            if (!Ctx.IsMovementPressed)
-            {
-                SwitchState(Factory.Idle());
-                Debug.Log("Iam exiting attack");
-            }
-            else if (Ctx.IsMovementPressed)
+            if (Ctx.IsMovementPressed)
             {
                 SwitchState(Factory.Run());
+                Debug.Log("Iam exiting attack");
+            }
+            else if (!Ctx.IsMovementPressed)
+            {
+                SwitchState(Factory.Idle());
                 Debug.Log("Iam exiting attack");
             }
         } else
         {
             SwitchState(Factory.Attack());
+        }
+
+        if (Ctx.PlayerHealth.damaged)
+        {
+            SwitchState(Factory.Hit());
         }
 
     }

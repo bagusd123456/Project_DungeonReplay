@@ -16,7 +16,7 @@ MonoBehaviour:
   weaponImage: {fileID: 0}
   weaponType: 0
   range: 10
-  damage: 50
+  damage: 30
   ammoCapacity: 8
   magazineCapacity: 1000
   infMagazine: 0
