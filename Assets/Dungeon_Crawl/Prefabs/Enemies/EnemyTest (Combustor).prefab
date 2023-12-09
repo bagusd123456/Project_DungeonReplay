@@ -32,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 8515161014681303075}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.24, y: 0.22, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 543450653706697254}
@@ -57,10 +57,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.89
-  m_Height: 2.5
+  m_Radius: 0.89000005
+  m_Height: 2.9982316
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: -0.45}
+  m_Center: {x: 0, y: 0.24911542, z: -0.44999996}
 --- !u!195 &2491134130400996594
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -132,7 +132,7 @@ MonoBehaviour:
   anim: {fileID: 0}
   nav: {fileID: 0}
   speed: 0
-  sightDistance: 10
+  sightDistance: 15
   stop: 0
   onSight: 0
 --- !u!114 &2278375009679316399
@@ -152,14 +152,14 @@ MonoBehaviour:
   explosionParticle: {fileID: 717362969159137703, guid: 4f24a4e6003684a40a02db06f0d35002,
     type: 3}
   firePoint: {fileID: 0}
-  attackRadius: 10
+  attackRadius: 5
   timeBetweenAttacks: 0.5
   attackDamage: 35
   projectileSpeed: 5
   layer:
     serializedVersion: 2
     m_Bits: 0
-  distance: 0
+  distance: 7
   playerHealth: {fileID: 0}
   playerInRange: 0
   timer: 0
