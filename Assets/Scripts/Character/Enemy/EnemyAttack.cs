@@ -7,6 +7,7 @@ public class EnemyAttack : MonoBehaviour
     public attackType _attackType = attackType.MELEE;
 
     public GameObject projectile;
+    public GameObject explosionParticle;
     public Transform firePoint;
 
     public float attackRadius = 1.3f;
@@ -34,7 +35,7 @@ public class EnemyAttack : MonoBehaviour
         playerHealth = player.GetComponent<PlayerHealth>();
 
         //mendapatkan komponen Animator
-        anim = GetComponent<Animator>();
+        anim = GetComponentInChildren<Animator>();
         enemyHealth = GetComponent<EnemyHealth>();
     }
 
@@ -99,6 +100,7 @@ public class EnemyAttack : MonoBehaviour
                     {
                         gameObject.GetComponent<Transform>().LookAt(player.transform);
                         gameObject.GetComponent<EnemyMovement>()._enemyState = EnemyMovement.EnemyState.STAY;
+                        anim.SetTrigger("isAttacking");
                         var projectileGO = Instantiate(projectile, firePoint.position, firePoint.rotation);
 
                         EnemyProjectile[] projectileGOs = projectileGO.GetComponentsInChildren<EnemyProjectile>();
@@ -127,13 +129,23 @@ public class EnemyAttack : MonoBehaviour
 
                         gameObject.GetComponent<EnemyMovement>()._enemyState = EnemyMovement.EnemyState.STAY;
                         projectile.SetActive(true);
-                        //isAttacking = true;
-                        anim.SetTrigger("triggerPlay");
+                        isAttacking = true;
+                        anim.SetTrigger("isAttacking");
+
+                        StartCoroutine(nameof(StopLaser));
                     }
                 }
                 break;
         }
         
+    }
+
+    IEnumerator StopLaser()
+    {
+        yield return new WaitForSeconds(3.5f);
+
+        projectile.SetActive(false);
+        isAttacking = false;
     }
 
     public void SetAttackTrigger()
@@ -173,6 +185,7 @@ public class EnemyAttack : MonoBehaviour
         if (distance < 3f)
         {
             //var blowGO = Instantiate(projectile, transform.position, transform.rotation);
+            Instantiate(explosionParticle, transform.position, Quaternion.identity);
             playerHealth.TakeDamage(attackDamage);
             enemyHealth.currentHealth = 0;
             Destroy(gameObject);

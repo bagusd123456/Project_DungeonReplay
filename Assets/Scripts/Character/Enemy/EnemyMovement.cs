@@ -32,7 +32,7 @@ public class EnemyMovement : MonoBehaviour
 
         ////Mendapatkan Reference component
         //if(anim == null)
-        //    anim = GetComponent<Animator>();
+        anim = GetComponentInChildren<Animator>();
 
         rb = GetComponent<Rigidbody>();
         playerHealth = player.GetComponent<PlayerHealth>();
@@ -64,6 +64,8 @@ public class EnemyMovement : MonoBehaviour
         else //hentikan Moving
         {
             nav.enabled = false;
+            anim.SetBool("isWalking", false);
+
         }
     }
 
@@ -106,11 +108,15 @@ public class EnemyMovement : MonoBehaviour
             {
 
                 EnemyMove();
+                anim.SetBool("isWalking", true);
+
             }
 
             else
             {
                 EnemyStop();
+                anim.SetBool("isWalking", false);
+
             }
         }
 
@@ -120,11 +126,15 @@ public class EnemyMovement : MonoBehaviour
             {
 
                 EnemyMove();
+                anim.SetBool("isWalking", true);
+
             }
 
             else
             {
                 EnemyStop();
+                anim.SetBool("isWalking", false);
+
             }
         }
 
@@ -133,11 +143,15 @@ public class EnemyMovement : MonoBehaviour
             if (gameObject.GetComponent<EnemyAttack>().distance > enemyAttack.attackRadius && !enemyAttack.isAttacking)
             {
                 EnemyMove();
+                anim.SetBool("isWalking", true);
+
             }
 
             else
             {
                 EnemyStop();
+                anim.SetBool("isWalking", false);
+
             }
         }
     }
