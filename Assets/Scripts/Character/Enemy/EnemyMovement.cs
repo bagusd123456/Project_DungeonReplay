@@ -45,20 +45,22 @@ public class EnemyMovement : MonoBehaviour
 
     void Update ()
     {
-        //speed = rb.velocity;
-        //anim.SetFloat("speed", speed);
+        if (!enemyHealth.isReady) return;
 
         CheckRadius();
 
         //Memindahkan posisi player
         if (enemyHealth.currentHealth > 0 && playerHealth.currentHealth > 0 && _enemyState == EnemyState.CHASE)
         {
-            Invoke("EnableNav", .1f);
             if (nav.enabled)
             {
                 MoveBehavior();
             }
-                
+            else
+            {
+                Invoke(nameof(EnableNav), .1f);
+            }
+
         }
 
         else //hentikan Moving

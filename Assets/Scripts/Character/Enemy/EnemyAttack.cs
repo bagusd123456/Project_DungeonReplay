@@ -41,6 +41,7 @@ public class EnemyAttack : MonoBehaviour
 
     void Update()
     {
+        if(!enemyHealth.isReady) return;
         timer += Time.deltaTime;
 
         //playerInRange = Physics.CheckSphere(transform.position + Vector3.up * 1.02f, attackRadius, layer);
@@ -125,14 +126,7 @@ public class EnemyAttack : MonoBehaviour
                 {
                     if (playerInRange)
                     {
-                        gameObject.GetComponent<Transform>().LookAt(player.transform);
-
-                        gameObject.GetComponent<EnemyMovement>()._enemyState = EnemyMovement.EnemyState.STAY;
-                        projectile.SetActive(true);
-                        isAttacking = true;
-                        anim.SetTrigger("isAttacking");
-
-                        StartCoroutine(nameof(StopLaser));
+                        StartCoroutine(nameof(StartLaser));
                     }
                 }
                 break;
@@ -143,7 +137,23 @@ public class EnemyAttack : MonoBehaviour
     IEnumerator StopLaser()
     {
         yield return new WaitForSeconds(3.5f);
+        Debug.Log("Stop Laser");
+        projectile.SetActive(false);
+        isAttacking = false;
+    }
 
+    //Start Laser Attack
+    IEnumerator StartLaser()
+    {
+        gameObject.GetComponent<Transform>().LookAt(player.transform);
+        yield return new WaitForSeconds(0.2f);
+        gameObject.GetComponent<EnemyMovement>()._enemyState = EnemyMovement.EnemyState.STAY;
+        projectile.SetActive(true);
+        isAttacking = true;
+        anim.SetTrigger("isAttacking");
+
+        yield return new WaitForSeconds(3.5f);
+        Debug.Log("Stop Laser");
         projectile.SetActive(false);
         isAttacking = false;
     }

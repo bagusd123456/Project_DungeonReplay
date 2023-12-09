@@ -1,7 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Linq;
+using UnityEngine.Serialization;
 
 [System.Serializable]
 public class LoadoutData
@@ -30,6 +32,12 @@ public class PlayerShooting : MonoBehaviour
 
     [Header("Projectile")]
     public List<GameObject> _projectileList;
+
+    [Header("Defined Projectile")]
+    public GameObject laserProjectile;
+
+    [FormerlySerializedAs("PlayerLaserScript")] public PlayerLaserProjectile playerLaserScript;
+
     public int currentWeapon;
     public Transform firePointGO;
     [Space]
@@ -147,6 +155,11 @@ public class PlayerShooting : MonoBehaviour
         loadoutDataArray[currentWeapon].ammo--;
         shootTime = weaponData.fireRate;
 
+        
+
+        if (weaponData.weaponType == WeaponData._weaponType.Pistol ||
+            weaponData.weaponType == WeaponData._weaponType.Shotgun)
+        {
             var Bullet = Instantiate(weaponData.projectile, firePointGO.position, firePointGO.rotation);
             Rigidbody[] rb = Bullet.GetComponentsInChildren<Rigidbody>();
             foreach (var VARIABLE in rb)
@@ -154,25 +167,25 @@ public class PlayerShooting : MonoBehaviour
                 VARIABLE.AddForce(firePointGO.forward * weaponData.bulletSpeed, ForceMode.Impulse);
                 VARIABLE.GetComponent<PlayerProjectile>().damageAmount = weaponData.damage;
             }
-
-        if (weaponData.weaponType == WeaponData._weaponType.Pistol)
-        {
-            ShootHandgun(weaponData);
-        }
-
-        else if (weaponData.weaponType == WeaponData._weaponType.Shotgun)
-        {
-            ShootShotgun(weaponData);
         }
 
         else if (weaponData.weaponType == WeaponData._weaponType.AssaultRifle)
         {
-            ShootAR(weaponData);
+            playerLaserScript.damageAmount = weaponData.damage;
+            laserProjectile.gameObject.SetActive(true);
+            StartCoroutine(StopLaser());
         }
 
             
         _animator.SetTrigger("Shoot"); //Play Animation
         
+    }
+
+    IEnumerator StopLaser()
+    {
+        yield return new WaitForSeconds(3.5f);
+
+        laserProjectile.SetActive(false);
     }
 
     void ShootHandgun(WeaponData weaponData)

@@ -478,6 +478,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _attackType: 3
   projectile: {fileID: 109623797}
+  explosionParticle: {fileID: 0}
   firePoint: {fileID: 0}
   attackRadius: 5
   timeBetweenAttacks: 4
@@ -530,6 +531,7 @@ MonoBehaviour:
   deathClip: {fileID: 0}
   anim: {fileID: 0}
   isDead: 0
+  isReady: 0
   enemyDropList:
   - item: {fileID: 0}
     probability: 50
@@ -1009,6 +1011,7 @@ MonoBehaviour:
   deathClip: {fileID: 0}
   anim: {fileID: 0}
   isDead: 0
+  isReady: 0
   enemyDropList: []
 --- !u!23 &372343695
 MeshRenderer:
@@ -1089,6 +1092,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _attackType: 2
   projectile: {fileID: 0}
+  explosionParticle: {fileID: 0}
   firePoint: {fileID: 0}
   attackRadius: 1.3
   timeBetweenAttacks: 0.5
@@ -1404,7 +1408,7 @@ MonoBehaviour:
   damageCountdown: 0
   targetDistance: 3
   spawnCount: 0
-  player: {fileID: 0}
+  player: {fileID: 5438274945736291404}
   projectile: {fileID: 0}
   targetList: []
 --- !u!114 &700004845
@@ -1792,6 +1796,7 @@ MonoBehaviour:
   _attackType: 1
   projectile: {fileID: 6428009189495940825, guid: 0d305a0f276219945a3c924881af5f2d,
     type: 3}
+  explosionParticle: {fileID: 0}
   firePoint: {fileID: 424100154}
   attackRadius: 7
   timeBetweenAttacks: 0.5
@@ -1844,6 +1849,7 @@ MonoBehaviour:
   deathClip: {fileID: 0}
   anim: {fileID: 0}
   isDead: 0
+  isReady: 0
   enemyDropList:
   - item: {fileID: 0}
     probability: 50

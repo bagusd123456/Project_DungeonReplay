@@ -19,6 +19,7 @@ public class EnemyHealth : MonoBehaviour
     ParticleSystem hitParticles;
     CapsuleCollider capsuleCollider;
     public bool isDead;
+    public bool isReady = false;
     bool isSinking;
 
     [Header("On Enemy Die")] 

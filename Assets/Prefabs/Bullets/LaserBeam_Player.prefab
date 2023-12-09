@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7631316285022603026
+--- !u!1 &7006812524698311559
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,9 +8,41 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7631316285022603027}
-  - component: {fileID: 7631316285022603025}
-  - component: {fileID: 7631316285022603024}
+  - component: {fileID: 7006812524698311552}
+  m_Layer: 3
+  m_Name: LaserBeam_Player
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &7006812524698311552
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7006812524698311559}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.08, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7006812524705018073}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7006812524705018072
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7006812524705018073}
+  - component: {fileID: 7006812524705018075}
+  - component: {fileID: 7006812524705018074}
   m_Layer: 3
   m_Name: LaserBeam_VFX
   m_TagString: Untagged
@@ -18,29 +50,29 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7631316285022603027
+--- !u!4 &7006812524705018073
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7631316285022603026}
+  m_GameObject: {fileID: 7006812524705018072}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.342, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6279681777824517223}
-  m_Father: {fileID: 7631316285028527178}
+  - {fileID: 6917311507983809453}
+  m_Father: {fileID: 7006812524698311552}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!2083052967 &7631316285022603025
+--- !u!2083052967 &7006812524705018075
 VisualEffect:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7631316285022603026}
+  m_GameObject: {fileID: 7006812524705018072}
   m_Enabled: 1
   m_Asset: {fileID: 8926484042661614526, guid: 8e6cbccf2bdb24e49acae19c16e8149c, type: 3}
   m_InitialEventName: OnPlay
@@ -74,14 +106,14 @@ VisualEffect:
       m_Array: []
     m_Bool:
       m_Array: []
---- !u!73398921 &7631316285022603024
+--- !u!73398921 &7006812524705018074
 VFXRenderer:
   serializedVersion: 1
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7631316285022603026}
+  m_GameObject: {fileID: 7006812524705018072}
   m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -114,44 +146,12 @@ VFXRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!1 &7631316285028527181
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7631316285028527178}
-  m_Layer: 3
-  m_Name: LaserBeam
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &7631316285028527178
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7631316285028527181}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.98, y: 2.67, z: -1.16}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 7631316285022603027}
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &6601901015865944640
+--- !u!1001 &6000055406940593546
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 7631316285022603027}
+    m_TransformParent: {fileID: 7006812524705018073}
     m_Modifications:
     - target: {fileID: 917398076329797154, guid: c7671effa572cc44db1bbb9f6348c1b0,
         type: 3}
@@ -230,9 +230,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7671effa572cc44db1bbb9f6348c1b0, type: 3}
---- !u!4 &6279681777824517223 stripped
+--- !u!4 &6917311507983809453 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 917398076329797159, guid: c7671effa572cc44db1bbb9f6348c1b0,
     type: 3}
-  m_PrefabInstance: {fileID: 6601901015865944640}
+  m_PrefabInstance: {fileID: 6000055406940593546}
   m_PrefabAsset: {fileID: 0}
