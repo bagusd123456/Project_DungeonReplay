@@ -14,6 +14,7 @@ public class PlayerDeathState : PlayerBaseState
     {
         Ctx.Animator.SetBool("isDead", true);
         Ctx.IsDead = true;
+        Ctx.StartCoroutine(UIManager.Instance.GameOver());
     }
 
     public override void UpdateState()

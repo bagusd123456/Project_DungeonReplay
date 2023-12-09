@@ -7,6 +7,8 @@ public class PlayerDashState : PlayerBaseState
     public PlayerDashState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory)
         : base(currentContext, playerStateFactory) { }
 
+
+    Vector3 previousVelocity;
     public override void EnterState()
     {
         Ctx.Animator.SetTrigger("isDashing");
@@ -23,10 +25,12 @@ public class PlayerDashState : PlayerBaseState
 
     public override void FixedUpdateState()
     {
-
     }
 
-    public override void ExitState() { }
+    public override void ExitState() {
+        Ctx.Rigidbody.velocity = previousVelocity;
+
+    }
 
     public override void InitializeSubState() { }
 
@@ -54,7 +58,9 @@ public class PlayerDashState : PlayerBaseState
 
     void HandleDash()
     {
-        Ctx.Rigidbody.AddForce(Ctx.transform.forward * Ctx.DashSpeed, ForceMode.Impulse);
+        previousVelocity = Ctx.Rigidbody.velocity;
+
+        Ctx.Rigidbody.velocity = Ctx.transform.forward * Ctx.DashSpeed;
         //Ctx.IsDashing = false;
     }
 }

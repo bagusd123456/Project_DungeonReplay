@@ -10,7 +10,7 @@ public class PlayerAttackState : PlayerBaseState
     {
         Ctx.IsAttacking = true;
 
-        Ctx.Animator.SetBool("isWalking", false);
+        //Ctx.Animator.SetBool("isWalking", false);
 
         Debug.Log("Iam attacking!");
         Ctx.Animator.SetTrigger("isAttacking");
@@ -18,7 +18,13 @@ public class PlayerAttackState : PlayerBaseState
 
     public override void UpdateState()
     {
-        //FaceMouse();
+        FaceMouse();
+        if (Ctx.IsMovementPressed)
+        {
+            Ctx.Animator.SetBool("isWalking", true);
+            Ctx.AppliedMovementX = Ctx.CurrentMovementInput.x;
+            Ctx.AppliedMovementY = Ctx.CurrentMovementInput.y;
+        }
         
         CheckSwitchState();
     }

@@ -61,6 +61,7 @@ public class PlayerStateMachine : MonoBehaviour
     public Rigidbody Rigidbody { get { return _rigidBody; } set { _rigidBody = value; } }
     public Camera Camera { get { return _camera; } }
     public PlayerBaseState CurrentState { get { return _currentState; } set { _currentState = value; } }
+    public Vector3 CameraRelativeDirections { get { return cameraRelativeDirections; } }
     public bool IsMovementPressed { get { return _isMovementPressed; } set { _isMovementPressed = value; } }
     public bool IsAttackPressed { get { return _isAttackPressed; } }
     public bool IsAttacking { get { return _isAttacking; } set { _isAttacking = value; } }
@@ -116,7 +117,7 @@ public class PlayerStateMachine : MonoBehaviour
         _currentState.UpdateStates();
         if (!_isDead)
         {
-            HandleRotation();
+            //HandleRotation();
             _isMovementPressed = _playerInput.Player.Movement.inProgress;
         }
         
@@ -178,18 +179,12 @@ public class PlayerStateMachine : MonoBehaviour
     // Handles player Movements
     void HandleMovement()
     {
-        if (!_isAttackPressed)
-        {
-            // Get Camera Relative Directions based on player input
-            CameraRelativeControls(_appliedMovement);
+        // Get Camera Relative Directions based on player input
+        CameraRelativeControls(_appliedMovement);
 
-            // IT IS THE WALKING BIT
-            _rigidBody.MovePosition(transform.position + (cameraRelativeDirections * _moveSpeed * Time.deltaTime));
-        }
-        else
-        {
-            _isMovementPressed = false;
-        }
+        // IT IS THE WALKING BIT
+        _rigidBody.MovePosition(transform.position + (cameraRelativeDirections * _moveSpeed * Time.deltaTime));
+        
         
     }
 
@@ -222,21 +217,7 @@ public class PlayerStateMachine : MonoBehaviour
     // Gives a short momentum boost when idle attacking
     void CheckMovementIsPressed()
     {
-        // Adds Force to Player
-        //_rigidBody.AddForce(transform.forward * _attackDashSpeed);
-
-
-
-        // After done attacking, return to idle state
-        //_isAttacking = false;
-
-        /*if (_playerInput.Player.Movement.inProgress)
-        {
-            _isMovementPressed = true;
-            Debug.Log("i should be running now");
-
-        }*/
-
+        _isAttacking = false;
     }
 
     // Trigger Spawn Projectile Event

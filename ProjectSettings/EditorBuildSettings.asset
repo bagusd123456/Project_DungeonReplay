@@ -5,7 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Dungeon_Crawl/MainMenu.unity
+    guid: 89e671eb86a4d4eeb8ea83b068320f53
+  - enabled: 1
+    path: Assets/Dungeon_Crawl/LevelPath.unity
+    guid: 4523849d8f61d40de951b6fde06ab4b7
   m_configObjects: {}

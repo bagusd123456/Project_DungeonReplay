@@ -14,6 +14,8 @@ public class PlayerRunState : PlayerBaseState
     public override void UpdateState() {
         Ctx.AppliedMovementX = Ctx.CurrentMovementInput.x;
         Ctx.AppliedMovementY = Ctx.CurrentMovementInput.y;
+        FaceMouse();
+        //AdaptiveLegMovement();
         CheckSwitchState();
     }
 
@@ -23,8 +25,8 @@ public class PlayerRunState : PlayerBaseState
     }
 
     public override void ExitState() {
-        Ctx.AppliedMovementX = 0;
-        Ctx.AppliedMovementY = 0;
+
+        //AdaptiveLegMovement();
         
 
     }
@@ -57,7 +59,49 @@ public class PlayerRunState : PlayerBaseState
             SwitchState(Factory.Hit());
             Ctx.Animator.SetBool("isWalking", false);
         }
-
-
     }
+
+    void FaceMouse()
+    {
+        Ray camRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        RaycastHit floorHit;
+
+        if (Physics.Raycast(camRay, out floorHit, Ctx.CamRayLength, Ctx.FloorMask))
+        {
+            Vector3 playerToMouse = floorHit.point - Ctx.transform.position;
+            playerToMouse.y = 0;
+
+            Quaternion newRotation = Quaternion.LookRotation(playerToMouse);
+
+            Ctx.Rigidbody.MoveRotation(newRotation);
+        }
+    }
+
+    /*void AdaptiveLegMovement()
+    {
+        // Get Player Input Value
+        float playerVecticalInput = Ctx.CurrentMovementInput.y;
+        float playerHorizontalInput = Ctx.CurrentMovementInput.x;
+
+        // Get Camera Directional Vectors
+        Vector3 forward = Ctx.transform.forward;
+        Vector3 right = Ctx.transform.right;
+        forward.y = 0;
+        right.y = 0;
+        forward = forward.normalized;
+        right = right.normalized;
+
+        // Create Direction-Relative Input Vector
+        Vector3 forwardRelativeVecticalInput = playerVecticalInput * forward;
+        Vector3 rightRelativeVecticalInput = playerHorizontalInput * right;
+
+        Vector3 playerRelativeDirections = forwardRelativeVecticalInput + rightRelativeVecticalInput;
+
+        //Debug.Log(Ctx.Rigidbody.velocity.magnitude);
+        Ctx.Animator.SetFloat("Velocity X", Mathf.RoundToInt(playerRelativeDirections.x));
+        Ctx.Animator.SetFloat("Velocity Z", Mathf.RoundToInt(playerRelativeDirections.z));
+    }*/
+
+
 }
