@@ -13,6 +13,7 @@ public class PlayerDashState : PlayerBaseState
         Ctx.IsDashing = true;
         Ctx.IsAbleToDash = false;
         HandleDash();
+
     }
 
     public override void UpdateState()
@@ -22,7 +23,7 @@ public class PlayerDashState : PlayerBaseState
 
     public override void FixedUpdateState()
     {
-        
+
     }
 
     public override void ExitState() { }
@@ -53,7 +54,7 @@ public class PlayerDashState : PlayerBaseState
 
     void HandleDash()
     {
-        Ctx.Rigidbody.AddForce(Ctx.transform.forward * Ctx.DashSpeed, ForceMode.Impulse);
+        Ctx.Rigidbody.AddForce(Ctx.transform.forward * Ctx.DashSpeed * Time.deltaTime, ForceMode.Impulse);
         //Ctx.IsDashing = false;
     }
 }

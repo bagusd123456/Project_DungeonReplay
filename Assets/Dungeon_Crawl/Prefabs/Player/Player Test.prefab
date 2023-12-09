@@ -512,7 +512,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 72
   _moveSpeed: 8
-  _dashSpeed: 20
+  _dashSpeed: 2.5
   _attackDashSpeed: 100
   _rotationFactorPerFrame: 20
   _movementSmoothing: 0.2
