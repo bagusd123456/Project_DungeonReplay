@@ -32,10 +32,10 @@ public class RoomController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        foreach (var enemyHealth in enemyHealthList)
+        for (int i = 0; i < enemyHealthList.Count; i++)
         {
-            if (enemyHealth.isDead)
-                enemyHealthList.Remove(enemyHealth);
+            if (enemyHealthList[i].isDead || enemyHealthList[i] == null)
+                enemyHealthList.Remove(enemyHealthList[i]);
         }
 
         if (enemyHealthList.Count == 0)
