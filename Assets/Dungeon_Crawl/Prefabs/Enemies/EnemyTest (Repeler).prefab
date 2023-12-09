@@ -207,13 +207,15 @@ MonoBehaviour:
   attackRadius: 7
   timeBetweenAttacks: 0.5
   attackDamage: 10
+  projectileSpeed: 5
   layer:
     serializedVersion: 2
     m_Bits: 64
-  distance: 6
+  distance: 10
   playerHealth: {fileID: 0}
   playerInRange: 0
   timer: 0
+  isAttacking: 0
 --- !u!1 &8383287936283432390
 GameObject:
   m_ObjectHideFlags: 0

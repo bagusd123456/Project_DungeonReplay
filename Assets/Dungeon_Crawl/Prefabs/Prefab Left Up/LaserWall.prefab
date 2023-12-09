@@ -112,4 +112,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gateList: []
-  colliderSize: 2
+  colliderSize: 3
