@@ -3,7 +3,7 @@ using System.Collections;
 
 public class EnemyAttack : MonoBehaviour
 {
-    public enum attackType { MELEE, SPITTER, BOMBER}
+    public enum attackType { MELEE, SPITTER, BOMBER, LASER}
     public attackType _attackType = attackType.MELEE;
 
     public GameObject projectile;
@@ -24,6 +24,7 @@ public class EnemyAttack : MonoBehaviour
     EnemyHealth enemyHealth;
     public bool playerInRange;
     public float timer;
+    public bool isAttacking;
     void Awake()
     {
         //Mencari game object dengan tag "Player"
@@ -53,20 +54,15 @@ public class EnemyAttack : MonoBehaviour
             playerInRange = false;
         }
 
-        if (timer >= timeBetweenAttacks && playerInRange /*&& playerHealth.currentHealth > 0*/)
+        if (timer >= timeBetweenAttacks && playerInRange && playerHealth.currentHealth > 0)
         {
-            //if (_attackType == attackType.BOMBER)
-            //    Blow();
-            //else if (_attackType == attackType.MELEE)
-            //    gameObject.GetComponent<EnemyMovement>().anim.SetTrigger("attack");
-            //else if (_attackType == attackType.SPITTER)
-            //    gameObject.GetComponent<EnemyMovement>().anim.SetTrigger("attack");
-
             if (_attackType == attackType.BOMBER)
                 Blow();
             else if (_attackType == attackType.MELEE)
                 Attack();
             else if (_attackType == attackType.SPITTER)
+                Attack();
+            else if(_attackType == attackType.LASER)
                 Attack();
         }
     }
@@ -117,8 +113,38 @@ public class EnemyAttack : MonoBehaviour
                     }
                 }
                 break;
+
+            case attackType.LASER:
+                //Reset timer
+                timer = 0f;
+
+                //Taking Damage
+                if (playerHealth.currentHealth > 0 && !isAttacking)
+                {
+                    if (playerInRange)
+                    {
+                        gameObject.GetComponent<Transform>().LookAt(player.transform);
+
+                        gameObject.GetComponent<EnemyMovement>()._enemyState = EnemyMovement.EnemyState.STAY;
+                        projectile.SetActive(true);
+                        //isAttacking = true;
+                        anim.SetTrigger("triggerPlay");
+                    }
+                }
+                break;
         }
         
+    }
+
+    public void SetAttackTrigger()
+    {
+        isAttacking = true;
+    }
+
+    public void ResetAttackTrigger()
+    {
+        projectile.SetActive(false);
+        isAttacking = false;
     }
 
     public void BasicAttack()

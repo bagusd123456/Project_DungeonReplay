@@ -127,6 +127,19 @@ public class EnemyMovement : MonoBehaviour
                 EnemyStop();
             }
         }
+
+        if (enemyAttack._attackType == EnemyAttack.attackType.LASER)
+        {
+            if (gameObject.GetComponent<EnemyAttack>().distance > enemyAttack.attackRadius && !enemyAttack.isAttacking)
+            {
+                EnemyMove();
+            }
+
+            else
+            {
+                EnemyStop();
+            }
+        }
     }
 
     private void EnemyMove()
