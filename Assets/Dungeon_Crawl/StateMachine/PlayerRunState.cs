@@ -17,6 +17,11 @@ public class PlayerRunState : PlayerBaseState
         CheckSwitchState();
     }
 
+    public override void FixedUpdateState()
+    {
+
+    }
+
     public override void ExitState() {
         Ctx.AppliedMovementX = 0;
         Ctx.AppliedMovementY = 0;
