@@ -11,6 +11,7 @@ public class PlayerSwitchWeaponSubState : PlayerBaseState
     {
         Ctx.Animator.SetTrigger("isSwitching");
         SwitchToWeapon();
+        Debug.Log("Is switching weapon");
     }
 
     public override void UpdateState()
@@ -45,6 +46,9 @@ public class PlayerSwitchWeaponSubState : PlayerBaseState
             if (i == Ctx.CurrentWeapon - 1)
             {
                 Ctx.WeaponList[i].SetActive(true);
+                Ctx.PlayerShootingScript.WeaponSwitch(i);
+                WeaponData currentWeaponData = Ctx.PlayerShootingScript.loadoutDataArray[i].weaponData;
+                Ctx.Animator.SetFloat("ShootSpeed", currentWeaponData.fireRate);
             } else
             {
                 Ctx.WeaponList[i].SetActive(false);

@@ -96,7 +96,7 @@ public class PlayerShooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        WeaponSwitch();
+        //WeaponSwitch();
 
         ////On Hold Left Click
         //if (Mouse.current.leftButton.wasPressedThisFrame)
@@ -121,8 +121,8 @@ public class PlayerShooting : MonoBehaviour
         //}
 
         //Calculate time Can Shoot
-        if (shootTime >= 0f)
-            shootTime -= Time.deltaTime;
+        /*if (shootTime >= 0f)
+            shootTime -= Time.deltaTime;*/
     }
 
     public void TriggerShoot()
@@ -133,11 +133,12 @@ public class PlayerShooting : MonoBehaviour
 
     void Shootv2(WeaponData weaponData)
     {
-
-        if (loadoutDataArray[currentWeapon].ammo > 0 && shootTime < 0f)
+        if (loadoutDataArray[currentWeapon].ammo < 1)
         {
-            loadoutDataArray[currentWeapon].ammo--;
-            shootTime = weaponData.fireRate;
+            WeaponReload(loadoutDataArray[currentWeapon].weaponData);
+        }
+        loadoutDataArray[currentWeapon].ammo--;
+        shootTime = weaponData.fireRate;
 
             var Bullet = Instantiate(weaponData.projectile, firePointGO.position, firePointGO.rotation);
             Rigidbody[] rb = Bullet.GetComponentsInChildren<Rigidbody>();
@@ -147,29 +148,24 @@ public class PlayerShooting : MonoBehaviour
                 VARIABLE.GetComponent<PlayerProjectile>().damageAmount = weaponData.damage;
             }
 
-            if (weaponData.weaponType == WeaponData._weaponType.Pistol)
-            {
-                ShootHandgun(weaponData);
-            }
+        if (weaponData.weaponType == WeaponData._weaponType.Pistol)
+        {
+            ShootHandgun(weaponData);
+        }
 
-            else if (weaponData.weaponType == WeaponData._weaponType.Shotgun)
-            {
-                ShootShotgun(weaponData);
-            }
+        else if (weaponData.weaponType == WeaponData._weaponType.Shotgun)
+        {
+            ShootShotgun(weaponData);
+        }
 
-            else if (weaponData.weaponType == WeaponData._weaponType.AssaultRifle)
-            {
-                ShootAR(weaponData);
-            }
+        else if (weaponData.weaponType == WeaponData._weaponType.AssaultRifle)
+        {
+            ShootAR(weaponData);
+        }
 
             
-            _animator.SetTrigger("Shoot"); //Play Animation
-        }
-
-        else
-        {
-            WeaponReload(loadoutDataArray[currentWeapon].weaponData);
-        }
+        _animator.SetTrigger("Shoot"); //Play Animation
+        
     }
 
     void ShootHandgun(WeaponData weaponData)
@@ -227,12 +223,12 @@ public class PlayerShooting : MonoBehaviour
         }
     }
 
-    void WeaponSwitch()
+    public void WeaponSwitch(int _currentWeapon)
     {
         if (loadoutDataArray.Count > 0)
         {
 
-            if (Keyboard.current.digit1Key.wasPressedThisFrame && loadoutDataArray.ElementAtOrDefault(0) != null)
+            /*if (Keyboard.current.digit1Key.wasPressedThisFrame && loadoutDataArray.ElementAtOrDefault(0) != null)
             {
                 currentWeapon = 0;
             }
@@ -247,7 +243,9 @@ public class PlayerShooting : MonoBehaviour
             else if (Keyboard.current.digit4Key.wasPressedThisFrame && loadoutDataArray.ElementAtOrDefault(3) != null)
             {
                 currentWeapon = 3;
-            }
+            }*/
+
+            currentWeapon = _currentWeapon;
 
             //InGameMenuController.Instance.UpdateAmmoInfo();
             WeaponUpdateData();

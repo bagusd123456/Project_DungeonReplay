@@ -14,6 +14,7 @@ public class PlayerStateMachine : MonoBehaviour
     Rigidbody _rigidBody;
     Animator _animator;
     Camera _camera;
+    PlayerShooting _playerShootingScript;
 
     // variables to store player input values
     Vector2 _currentMovementInput;
@@ -41,6 +42,7 @@ public class PlayerStateMachine : MonoBehaviour
 
     [Header("Weapon List")]
     public List<GameObject> _weaponList;
+    float _currentWeaponFirerate;
 
     // variables responsible for camera
     float _camRayLength = 100f;
@@ -66,6 +68,7 @@ public class PlayerStateMachine : MonoBehaviour
     public bool IsSwitchingWeapon { get { return _isSwitchingWeapon; } }
     public float CurrentWeapon { get { return _currentWeapon; } }
     public Vector2 CurrentMovementInput { get { return _currentMovementInput; } }
+    public PlayerShooting PlayerShootingScript { get { return _playerShootingScript; } }
     public float AppliedMovementX { get { return _appliedMovement.x; } set { _appliedMovement.x = value; } }
     public float AppliedMovementY { get { return _appliedMovement.y; } set { _appliedMovement.y = value; } }
     public float CamRayLength { get { return _camRayLength; } set { _camRayLength = value; } }
@@ -79,6 +82,7 @@ public class PlayerStateMachine : MonoBehaviour
         _rigidBody = GetComponent<Rigidbody>();
         _animator = GetComponent<Animator>();
         _camera = Camera.main;
+        _playerShootingScript = GetComponent<PlayerShooting>();
 
         // setup state
         _states = new PlayerStateFactory(this);
@@ -214,8 +218,6 @@ public class PlayerStateMachine : MonoBehaviour
         {
             _isMovementPressed = true;
         }
-
-        
     }
 
     // Trigger Spawn Projectile Event
@@ -275,7 +277,7 @@ public class PlayerStateMachine : MonoBehaviour
     private void OnDisable()
     {
         // disable the character controls action map
-        _playerInput?.Player.Disable();
+        _playerInput.Player.Disable();
     }
     #endregion
 }

@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerProjectile : MonoBehaviour
 {
     public int damageAmount;
+    public GameObject impactParticle;
 
     private void OnEnable()
     {
@@ -21,15 +22,21 @@ public class PlayerProjectile : MonoBehaviour
             if (enemyHealth != null)
             {
                 enemyHealth.TakeDamage(damageAmount);
-                Destroy(GetComponentInChildren<Light>());
-                gameObject.SetActive(false);
+                
             }
 
         }
+        Instantiate(impactParticle, transform.position, Quaternion.identity);
+        Destroy(GetComponentInChildren<Light>());
+
+        gameObject.SetActive(false);
+
+        Invoke(nameof(DisableGameObject), 3.5f);
     }
 
     public void DisableGameObject()
     {
+
         gameObject.SetActive(false);
     }
 }

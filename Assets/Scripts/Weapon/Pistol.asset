@@ -20,7 +20,7 @@ MonoBehaviour:
   ammoCapacity: 8
   magazineCapacity: 1000
   infMagazine: 0
-  fireRate: 0.2
+  fireRate: 2
   reloadSpeed: 0
   projectile: {fileID: 6428009189495940825, guid: 079f85db5c7c3a142851ddaa91f12f28,
     type: 3}
