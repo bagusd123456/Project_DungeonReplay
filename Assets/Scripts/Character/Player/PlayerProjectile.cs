@@ -24,8 +24,18 @@ public class PlayerProjectile : MonoBehaviour
                 enemyHealth.TakeDamage(damageAmount);
                 
             }
-
         }
+
+        else if (other.CompareTag("Player"))
+        {
+            return;
+        }
+
+        else if (other.CompareTag("Bullet"))
+        {
+            return;
+        }
+
         Instantiate(impactParticle, transform.position, Quaternion.identity);
         Destroy(GetComponentInChildren<Light>());
 

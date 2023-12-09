@@ -26,10 +26,10 @@ public class LaserWallController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        foreach (var gate in gateList)
-        {
-            gate.gameObject.SetActive(gameObject.activeSelf);
-        }
+        //foreach (var gate in gateList)
+        //{
+        //    gate.gameObject.SetActive(gameObject.activeSelf);
+        //}
     }
 
     [ContextMenu("Get Entrance List")]

@@ -280,8 +280,8 @@ public class PlayerShooting : MonoBehaviour
         {
             if (loadoutDataArray[currentWeapon].weaponData == null) return;
 
-            if (loadoutDataArray[currentWeapon].weaponData.weaponType == WeaponData._weaponType.Shotgun)
-                Gizmos.DrawWireCube(firePointGO.transform.position + (transform.forward * 2f), transform.localScale * range);
+            //if (loadoutDataArray[currentWeapon].weaponData.weaponType == WeaponData._weaponType.Shotgun)
+            //    Gizmos.DrawWireCube(firePointGO.transform.position + (transform.forward * 2f), transform.localScale * range);
         }
             
     }

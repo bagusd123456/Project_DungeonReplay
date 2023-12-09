@@ -62,7 +62,7 @@ public class RoomController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Player"))
-            LockAllGate();
+        //if(other.CompareTag("Player"))
+        //    LockAllGate();
     }
 }

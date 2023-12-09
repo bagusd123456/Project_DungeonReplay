@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - Collectible
   - WallGate
+  - Bullet
   layers:
   - Default
   - TransparentFX
