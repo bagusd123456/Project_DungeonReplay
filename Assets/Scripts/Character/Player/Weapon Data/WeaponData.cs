@@ -5,7 +5,11 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Weapon Data")]
 public class WeaponData : ScriptableObject
 {
-    public enum _weaponType { Pistol, AssaultRifle, Shotgun }
+    public enum _weaponType
+    {
+        Pistol, AssaultRifle, Shotgun, 
+        Bazooka
+    }
 
     [Header("Weapon Properties")]
     public string weaponName;

@@ -11,6 +11,13 @@ public class LoadoutData
     public WeaponData weaponData;
     public int magazine;
     public int ammo;
+
+    public void InitData()
+    {
+        weaponName = weaponData.weaponName;
+        magazine = weaponData.magazineCapacity;
+        ammo = weaponData.ammoCapacity;
+    }
 }
 
 public class PlayerShooting : MonoBehaviour

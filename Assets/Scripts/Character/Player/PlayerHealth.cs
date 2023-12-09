@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 
 [RequireComponent(typeof(AudioSource))]
 public class PlayerHealth : MonoBehaviour
@@ -19,9 +20,24 @@ public class PlayerHealth : MonoBehaviour
     bool isDead;
     public bool damaged;
 
-    public GameObject detectedGO;
+    public ItemEntity detectedItem;
+    public WeaponEntity detectedWeapon;
+
+    public static PlayerHealth Instance { get; private set; }
+
     void Awake()
     {
+        // If there is an instance, and it's not me, delete myself.
+
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
+
         //Mendapatkan reference komponen
         anim = GetComponent<Animator>();
         playerAudio = GetComponent<AudioSource>();
@@ -33,10 +49,7 @@ public class PlayerHealth : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            Destroy(detectedGO);
-        }
+        
     }
 
     //fungsi untuk mendapatkan damage
@@ -77,6 +90,18 @@ public class PlayerHealth : MonoBehaviour
         //_shootController.enabled = false;
     }
 
+    public void CollectItem()
+    {
+        if (detectedItem != null)
+        {
+            detectedItem.Collect();
+        }
+
+        if (detectedWeapon != null)
+        {
+            detectedWeapon.Collect();
+        }
+    }
 
     public void RestartLevel()
     {
@@ -88,12 +113,15 @@ public class PlayerHealth : MonoBehaviour
     {
         if(other.CompareTag("Collectible"))
         {
-            detectedGO = other.gameObject;
+            other.gameObject.TryGetComponent(out detectedItem);
+            other.gameObject.TryGetComponent(out detectedWeapon);
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        detectedGO = null;
+        detectedItem = null;
+        detectedWeapon = null;
+        Debug.Log("iam not detecting items");
     }
 }

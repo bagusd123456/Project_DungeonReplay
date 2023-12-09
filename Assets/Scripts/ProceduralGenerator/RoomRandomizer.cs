@@ -12,7 +12,20 @@ public class RoomRandomizer : MonoBehaviour
 
     public void Start()
     {
+        //Delete Children on Start
+        ClearSpawn();
+
         RandomSpawn();
+    }
+
+    [ContextMenu("Clear Spawn")]
+    public void ClearSpawn()
+    {
+        int children = transform.childCount;
+        for (int i = 0; i < children; ++i)
+        {
+            Destroy(transform.GetChild(i).gameObject);
+        }
     }
 
     //Random Spawn One from the list

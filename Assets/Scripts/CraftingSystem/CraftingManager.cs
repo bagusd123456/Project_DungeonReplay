@@ -69,10 +69,12 @@ public class CraftingManager : MonoBehaviour
 
         if (firstItem.itemID == this.firstItem.itemID && secondItem.itemID == this.secondItem.itemID)
         {
+            ResetSlot();
             return resultItem;
         }
         else if (firstItem.itemID == this.secondItem.itemID && secondItem.itemID == this.firstItem.itemID)
         {
+            ResetSlot();
             return resultItem;
         }
         else
@@ -87,5 +89,11 @@ public class CraftingManager : MonoBehaviour
             firstItem = targetItem;
         else
             secondItem = targetItem;
+    }
+
+    public void ResetSlot()
+    {
+        this.firstItem = null;
+        this.secondItem = null;
     }
 }

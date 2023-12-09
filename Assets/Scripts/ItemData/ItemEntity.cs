@@ -1,9 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class ItemEntity : MonoBehaviour
+public class ItemEntity : MonoBehaviour, ICollectible
 {
     public ItemData currentData;
     public string itemName;
@@ -12,7 +13,9 @@ public class ItemEntity : MonoBehaviour
     public Sprite itemSprite;
 
     public bool isStackable;
-    public bool itemAmount;
+    public int itemAmount;
+
+    public bool canCollect;
     public void InitData(ItemData itemData = null)
     {
         if (itemData == null)
@@ -25,5 +28,29 @@ public class ItemEntity : MonoBehaviour
         itemDescription = itemData.itemDescription;
         itemSprite = itemData.itemSprite;
         isStackable = itemData.isStackable;
+    }
+
+    public void Collect()
+    {
+        if (!canCollect) return;
+
+        CraftingManager.Instance.AddItemToSlot(PlayerHealth.Instance.detectedItem.currentData);
+        Destroy(gameObject);
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            canCollect = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            canCollect = false;
+        }
     }
 }
