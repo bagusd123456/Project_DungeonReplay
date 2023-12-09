@@ -10,6 +10,7 @@ public class PlayerAttackState : PlayerBaseState
     {
         Ctx.IsAttacking = true;
 
+        Ctx.Animator.SetBool("isWalking", false);
 
         Debug.Log("Iam attacking!");
         Ctx.Animator.SetTrigger("isAttacking");
