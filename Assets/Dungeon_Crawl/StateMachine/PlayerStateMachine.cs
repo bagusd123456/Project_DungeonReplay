@@ -124,6 +124,7 @@ public class PlayerStateMachine : MonoBehaviour
 
     private void FixedUpdate()
     {
+        _currentState.FixedUpdateStates();
         if (!_isDead)
         {
             // Calls the Movement Logic

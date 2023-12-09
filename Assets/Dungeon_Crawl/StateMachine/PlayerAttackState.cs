@@ -23,6 +23,11 @@ public class PlayerAttackState : PlayerBaseState
         CheckSwitchState();
     }
 
+    public override void FixedUpdateState()
+    {
+
+    }
+
     public override void ExitState() {
         
     }

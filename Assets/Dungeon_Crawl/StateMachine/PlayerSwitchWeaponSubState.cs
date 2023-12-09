@@ -19,6 +19,11 @@ public class PlayerSwitchWeaponSubState : PlayerBaseState
         CheckSwitchState();
     }
 
+    public override void FixedUpdateState()
+    {
+
+    }
+
     public override void ExitState() { }
 
     public override void InitializeSubState() { }
