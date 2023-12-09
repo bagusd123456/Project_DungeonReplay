@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -308,6 +308,12 @@ MonoBehaviour:
   m_MaximumFOV: 60
   m_MinimumOrthoSize: 1
   m_MaximumOrthoSize: 5000
+--- !u!1 &218653203 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5031904276158727967, guid: abfb26b6f94864990871c02bdff134a2,
+    type: 3}
+  m_PrefabInstance: {fileID: 542958847}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &306025376
 GameObject:
   m_ObjectHideFlags: 0
@@ -973,6 +979,75 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &542958847
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4436628425055336400, guid: abfb26b6f94864990871c02bdff134a2,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4436628425055336400, guid: abfb26b6f94864990871c02bdff134a2,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 37.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4436628425055336400, guid: abfb26b6f94864990871c02bdff134a2,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 4436628425055336400, guid: abfb26b6f94864990871c02bdff134a2,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4436628425055336400, guid: abfb26b6f94864990871c02bdff134a2,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4436628425055336400, guid: abfb26b6f94864990871c02bdff134a2,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4436628425055336400, guid: abfb26b6f94864990871c02bdff134a2,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4436628425055336400, guid: abfb26b6f94864990871c02bdff134a2,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4436628425055336400, guid: abfb26b6f94864990871c02bdff134a2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4436628425055336400, guid: abfb26b6f94864990871c02bdff134a2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4436628425055336400, guid: abfb26b6f94864990871c02bdff134a2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5031904276158727967, guid: abfb26b6f94864990871c02bdff134a2,
+        type: 3}
+      propertyPath: m_Name
+      value: Path
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: abfb26b6f94864990871c02bdff134a2, type: 3}
 --- !u!1 &604113068
 GameObject:
   m_ObjectHideFlags: 0
@@ -1517,13 +1592,61 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5e9b56bbf17b304791c3f4ade041a4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tempRoom: {fileID: 1363937011}
+  tempRoom: {fileID: 218653203}
   roomPrefabList:
-  - roomPrefab: {fileID: 526661985}
+  - roomPrefab: {fileID: 6018237385235641018, guid: c252385c59e354141b792f442ca6c57a,
+      type: 3}
     probability: 10
-  - roomPrefab: {fileID: 811916570}
+  - roomPrefab: {fileID: 6018237385235641018, guid: afd0efd59242b4124a333eb2a353e396,
+      type: 3}
     probability: 10
-  - roomPrefab: {fileID: 769011388}
+  - roomPrefab: {fileID: 6018237385235641018, guid: 34cd88289d97a42f9847c98f9b3d4b6c,
+      type: 3}
+    probability: 10
+  - roomPrefab: {fileID: 5383244375736974430, guid: 88b03df6f9414415b821647af07cb9c7,
+      type: 3}
+    probability: 10
+  - roomPrefab: {fileID: 6406839598251347332, guid: e08209205b09144a1bc1776ab69149ac,
+      type: 3}
+    probability: 10
+  - roomPrefab: {fileID: 8823186228645427277, guid: a4343ad294b084364a644f8954dfae91,
+      type: 3}
+    probability: 10
+  - roomPrefab: {fileID: 5919100479303926900, guid: 95f076c9ec5b24342aeab1ef0213907b,
+      type: 3}
+    probability: 10
+  - roomPrefab: {fileID: 2988121595753029849, guid: f1b22036ea2164c579bc6dc50af2fc61,
+      type: 3}
+    probability: 10
+  - roomPrefab: {fileID: 5442602561218565380, guid: 6a84d098c4a37478d997dcd066c231e7,
+      type: 3}
+    probability: 10
+  - roomPrefab: {fileID: 7184909218473735768, guid: fe0f6278ffc1b42cba25cc91ff0ac66c,
+      type: 3}
+    probability: 10
+  - roomPrefab: {fileID: 7184909218473735768, guid: 9ae2c54418aef477cb820948c2e75c0b,
+      type: 3}
+    probability: 10
+  - roomPrefab: {fileID: 7184909218473735768, guid: de6fc15c0df11486e8d3758f11cc13bc,
+      type: 3}
+    probability: 10
+  - roomPrefab: {fileID: 7326272675368413106, guid: bd00e2c1ace0e4746ad145c7bbddbe4a,
+      type: 3}
+    probability: 10
+  - roomPrefab: {fileID: 5603055897059483632, guid: 353d31e095a1e483abf8184969cfcb63,
+      type: 3}
+    probability: 10
+  - roomPrefab: {fileID: 3232778499205783161, guid: 02597a6e66201408389f8a78f58d695d,
+      type: 3}
+    probability: 10
+  - roomPrefab: {fileID: 3378202723724131281, guid: 9d53f9aab039d4cefb20746f5e095a4b,
+      type: 3}
+    probability: 10
+  - roomPrefab: {fileID: 3378202723724131281, guid: 24dae7339c40f4934975c1352bdf2340,
+      type: 3}
+    probability: 10
+  - roomPrefab: {fileID: 3378202723724131281, guid: c0c46f06b3d924af7b7acc1a08ecf3c6,
+      type: 3}
     probability: 10
 --- !u!4 &2115779177
 Transform:
