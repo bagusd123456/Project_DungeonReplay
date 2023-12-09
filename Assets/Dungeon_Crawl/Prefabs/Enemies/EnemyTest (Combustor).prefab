@@ -114,6 +114,7 @@ MonoBehaviour:
   deathClip: {fileID: 0}
   anim: {fileID: 0}
   isDead: 0
+  isReady: 0
   enemyDropList: []
 --- !u!114 &6393113706870004164
 MonoBehaviour:
@@ -154,7 +155,7 @@ MonoBehaviour:
   firePoint: {fileID: 0}
   attackRadius: 5
   timeBetweenAttacks: 0.5
-  attackDamage: 15
+  attackDamage: 7
   projectileSpeed: 5
   layer:
     serializedVersion: 2
