@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using DG.Tweening;
 using UnityEngine;
+using Unity.AI.Navigation;
 
 public class RoomController : MonoBehaviour
 {
@@ -18,12 +19,18 @@ public class RoomController : MonoBehaviour
     public float waitTime = 3f;
 
     public int timesRevealed;
+
+    public NavMeshSurface navMeshSurface;
+
     // Start is called before the first frame update
     void Start()
     {
         currentTime = waitTime;
         DetectEnemy();
         ShowEnemy(false);
+        navMeshSurface = gameObject.GetComponent<NavMeshSurface>();
+
+        navMeshSurface.BuildNavMesh();
     }
 
     [ContextMenu("DetectEnemy")]
