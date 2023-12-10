@@ -1,9 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.AI;
 using UnityEngine;
 using Random = UnityEngine.Random;
+#if UNITY_EDITOR
+    using UnityEditor.AI;
+#endif
 
 public class RoomRandomizer : MonoBehaviour
 {
@@ -45,11 +47,12 @@ public class RoomRandomizer : MonoBehaviour
 
         GenerateNavMesh();
     }
-
+#if UNITY_EDITOR
     public void GenerateNavMesh()
     {
         NavMeshBuilder.BuildNavMesh();
     }
+#endif
 }
 
 [Serializable]
