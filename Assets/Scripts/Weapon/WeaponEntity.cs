@@ -18,11 +18,18 @@ public class WeaponEntity : MonoBehaviour,ICollectible
     [ContextMenu("Collect")]
     public void Collect()
     {
-        var currentWeapon = PlayerShooting.Instance.loadoutDataArray[PlayerShooting.Instance.currentWeapon];
-        currentWeapon = currentData;
+        if (PlayerShooting.Instance.loadoutDataArray.Count <= 2)
+        {
+            var currentWeapon = PlayerShooting.Instance.loadoutDataArray[PlayerShooting.Instance.currentWeapon];
+            currentWeapon = currentData;
 
-        PlayerShooting.Instance.loadoutDataArray[PlayerShooting.Instance.currentWeapon] = currentWeapon;
-        Destroy(gameObject);
+            PlayerShooting.Instance.loadoutDataArray.Add(currentWeapon);
+            PlayerShooting.Instance.WeaponSwitch(1);
+            Destroy(gameObject);
+
+        }
+
+
     }
 
     private void OnTriggerEnter(Collider other)

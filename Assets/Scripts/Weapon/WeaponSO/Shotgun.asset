@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Shotgun
   m_EditorClassIdentifier: 
   weaponName: Shotgun
-  weaponImage: {fileID: 21300000, guid: bc5a1965be7b9f64e90963b82170727a, type: 3}
+  weaponImage: {fileID: 21300000, guid: 1fb073212d5934f4690bd760bef90d27, type: 3}
   weaponType: 2
   range: 2.4
   damage: 30

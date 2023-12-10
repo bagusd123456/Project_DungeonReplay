@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Laser
   m_EditorClassIdentifier: 
   weaponName: Laser
-  weaponImage: {fileID: 21300000, guid: 0a42bebb376b82d4a87a2ce2534c70f9, type: 3}
+  weaponImage: {fileID: 21300000, guid: 276edb613803fd74382cedde0f627b91, type: 3}
   weaponType: 1
   range: 7
   damage: 100

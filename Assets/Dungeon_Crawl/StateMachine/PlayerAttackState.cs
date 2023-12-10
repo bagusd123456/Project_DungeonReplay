@@ -6,6 +6,8 @@ public class PlayerAttackState : PlayerBaseState
 {
     public PlayerAttackState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory)
         : base(currentContext, playerStateFactory) { }
+
+    Vector3 position;
     public override void EnterState()
     {
         Ctx.IsAttacking = true;
@@ -25,7 +27,12 @@ public class PlayerAttackState : PlayerBaseState
             Ctx.AppliedMovementX = Ctx.CurrentMovementInput.x;
             Ctx.AppliedMovementY = Ctx.CurrentMovementInput.y;
         }
-        
+        else
+        {
+            Ctx.Animator.SetBool("isWalking", false);
+
+        }
+
         CheckSwitchState();
     }
 
@@ -61,6 +68,11 @@ public class PlayerAttackState : PlayerBaseState
             SwitchState(Factory.Attack());
         }
 
+        if (Ctx.IsDashPressed && Ctx.IsAbleToDash)
+        {
+            SwitchState(Factory.Dash());
+        }
+
         if (Ctx.PlayerHealth.damaged)
         {
             SwitchState(Factory.Hit());
@@ -71,19 +83,27 @@ public class PlayerAttackState : PlayerBaseState
     // Logic for Player faces the mouse when clicking
     void FaceMouse()
     {
-        Ray camRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+        /*Ray camRay = Camera.main.ScreenPointToRay(Input.mousePosition);
 
         RaycastHit floorHit;
 
-        if (Physics.Raycast(camRay, out floorHit, Ctx.CamRayLength, Ctx.FloorMask))
+        if (Physics.Raycast(camRay, out floorHit, Mathf.Infinity))
         {
-            Vector3 playerToMouse = floorHit.point - Ctx.transform.position;
+            *//*Vector3 playerToMouse = floorHit.point - Ctx.transform.position;
             playerToMouse.y = 0;
 
             Quaternion newRotation = Quaternion.LookRotation(playerToMouse);
 
-            Ctx.Rigidbody.MoveRotation(newRotation);
+            Ctx.Rigidbody.MoveRotation(newRotation);*//*
+
+            position = new Vector3(floorHit.point.x, 0f, floorHit.point.z);
+            position.y = 0;
+
         }
+        Quaternion transRot = Quaternion.LookRotation(position - Ctx.transform.position);
+        Ctx.transform.rotation = Quaternion.Lerp(transRot, Ctx.transform.rotation, 0f);*/
+
+        Ctx.FaceMouse();
     }
 
     // logic to shoot projectile from weapon

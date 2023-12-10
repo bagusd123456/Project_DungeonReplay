@@ -42,6 +42,15 @@ public class PlayerStateMachine : MonoBehaviour
     Vector3 cameraRelativeDirections;
     Vector2 _currentInputVector;
     Vector2 _smoothInputVelocity;
+    Vector3 position;
+
+    Vector3 _camForward;
+    Vector3 _move;
+    Vector3 _moveInput;
+    float _forwardAmount;
+    float _turnAmount;
+
+
 
     [Header("Weapon List")]
     public List<GameObject> _weaponList;
@@ -79,7 +88,7 @@ public class PlayerStateMachine : MonoBehaviour
     public float AppliedMovementY { get { return _appliedMovement.y; } set { _appliedMovement.y = value; } }
     public float CamRayLength { get { return _camRayLength; } set { _camRayLength = value; } }
     public LayerMask FloorMask { get { return _groundMask; } set { _groundMask = value; } }
-
+    public Vector3 MoveAnimation { get { return _move; } }
     public bool IsDead { get { return _isDead; } set { _isDead = value; } }
     #endregion
     private void Awake()
@@ -109,6 +118,8 @@ public class PlayerStateMachine : MonoBehaviour
         _playerInput.Player.SwitchWeapon.started += OnWeaponSwitchInput;
         _playerInput.Player.SwitchWeapon.started += OnSwitchWeaponCheck;
         _playerInput.Player.SwitchWeapon.canceled += OnSwitchWeaponCheck;
+        _playerInput.Player.Interact.started += OnCollectAction;
+        _playerInput.Player.Interact.canceled += OnCollectAction;
     }
 
     // Update is called once per frame
@@ -131,7 +142,49 @@ public class PlayerStateMachine : MonoBehaviour
             // Calls the Movement Logic
             HandleMovement();
         }
-        
+
+        // Handles Local Relative Input for Blend Tree
+        if (_camera != null)
+        {
+            _camForward = Vector3.Scale(_camera.transform.up, new Vector3(1, 0, 1)).normalized;
+            _move = _appliedMovement.y * _camForward + _appliedMovement.x * _camera.transform.right;
+
+        } else
+        {
+            _move = _appliedMovement.y * Vector3.forward + _appliedMovement.x * Vector3.right;
+        }
+
+        if (_move.magnitude >   1)
+        {
+            _move.Normalize();
+        }
+    }
+
+    public void Move(Vector3 move)
+    {
+        if (move.magnitude > 1)
+        {
+            move.Normalize();
+        }
+
+        this._moveInput = move;
+
+        ConvertMoveInput();
+        UpdateAnimator();
+    }
+
+    void ConvertMoveInput()
+    {
+        Vector3 localMove = transform.InverseTransformDirection(_moveInput);
+
+        _turnAmount = localMove.x;
+        _forwardAmount = localMove.z;
+    }
+
+    void UpdateAnimator()
+    {
+        _animator.SetFloat("Forward", _forwardAmount, .1f, Time.deltaTime);
+        _animator.SetFloat("Turn", _turnAmount, .1f, Time.deltaTime);
     }
 
     // Handles Player Rotation
@@ -151,29 +204,37 @@ public class PlayerStateMachine : MonoBehaviour
                 Quaternion targetRotation = Quaternion.LookRotation(cameraRelativeDirections, Vector3.up);
                 transform.rotation = Quaternion.Slerp(currentRotation, targetRotation, _rotationFactorPerFrame * Time.deltaTime);
             }
-        }
-        else
+        } else
         {
             FaceMouse();
         }
         
+        
+        
     }
 
-    void FaceMouse()
+    public void FaceMouse()
     {
         Ray camRay = Camera.main.ScreenPointToRay(Input.mousePosition);
 
         RaycastHit floorHit;
 
-        if (Physics.Raycast(camRay, out floorHit, _camRayLength, _groundMask))
+        if (Physics.Raycast(camRay, out floorHit, Mathf.Infinity))
         {
-            Vector3 playerToMouse = floorHit.point - transform.position;
+            /*Vector3 playerToMouse = floorHit.point - Ctx.transform.position;
             playerToMouse.y = 0;
 
             Quaternion newRotation = Quaternion.LookRotation(playerToMouse);
 
-            transform.rotation = newRotation;
+            Ctx.Rigidbody.MoveRotation(newRotation);*/
+
+            position = new Vector3(floorHit.point.x, 0f, floorHit.point.z);
+            position.y = 0;
+
         }
+
+        Quaternion transRot = Quaternion.LookRotation(position - transform.position);
+        transform.rotation = Quaternion.Lerp(transRot, transform.rotation, 0f);
     }
 
     // Handles player Movements
@@ -239,6 +300,19 @@ public class PlayerStateMachine : MonoBehaviour
     // below is Input Managers for the new Unity Input System
     // P.S: its actually really helpful but really complicated to set up
     #region Input System
+
+    public void OnCollectAction(InputAction.CallbackContext ctx)
+    {
+        if (PlayerHealth.Instance.detectedItem != null)
+        {
+            PlayerHealth.Instance.CollectItem();
+        }
+
+        if (PlayerHealth.Instance.detectedWeapon != null)
+        {
+            PlayerHealth.Instance.CollectItem();
+        }
+    }
 
     void OnMovementInput(InputAction.CallbackContext context)
     {

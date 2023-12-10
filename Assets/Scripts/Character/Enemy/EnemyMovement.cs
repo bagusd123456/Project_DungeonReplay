@@ -165,7 +165,7 @@ public class EnemyMovement : MonoBehaviour
         nav.isStopped = false;
     }
 
-    private void EnemyStop()
+    public void EnemyStop()
     {
         //anim.SetBool("Stop", true);
         nav.isStopped = true;

@@ -60,7 +60,7 @@ public class PlayerDashState : PlayerBaseState
     {
         previousVelocity = Ctx.Rigidbody.velocity;
 
-        Ctx.Rigidbody.velocity = Ctx.transform.forward * Ctx.DashSpeed;
+        Ctx.Rigidbody.velocity = Ctx.CameraRelativeDirections * Ctx.DashSpeed;
         //Ctx.IsDashing = false;
     }
 }

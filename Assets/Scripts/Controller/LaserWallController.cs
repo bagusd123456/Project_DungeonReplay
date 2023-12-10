@@ -12,7 +12,7 @@ public class LaserWallController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GetEntranceList();
+        //GetEntranceList();
     }
 
     private void OnDisable()
@@ -30,6 +30,12 @@ public class LaserWallController : MonoBehaviour
         //{
         //    gate.gameObject.SetActive(gameObject.activeSelf);
         //}
+    }
+
+    private void FixedUpdate()
+    {
+        GetEntranceList();
+
     }
 
     [ContextMenu("Get Entrance List")]

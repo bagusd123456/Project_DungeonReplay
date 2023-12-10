@@ -277,6 +277,7 @@ public class PlayerShooting : MonoBehaviour
         WeaponData weapon = loadoutDataArray[currentWeapon].weaponData;
 
         //shootTime = _weaponList[currentWeapon].fireRate;
+        UIManager.Instance.SwitchGunSprite(weapon.weaponImage);
         range = weapon.range;
     }
 
@@ -288,14 +289,14 @@ public class PlayerShooting : MonoBehaviour
 
         Debug.DrawRay(transform.position + Vector3.up * 1.3f, transform.forward * range, Color.blue);
 
-        //Gizmos.DrawWireSphere(transform.position, range);
+        /*//Gizmos.DrawWireSphere(transform.position, range);
         if (loadoutDataArray.Count > 0)
         {
             if (loadoutDataArray[currentWeapon].weaponData == null) return;
 
             //if (loadoutDataArray[currentWeapon].weaponData.weaponType == WeaponData._weaponType.Shotgun)
             //    Gizmos.DrawWireCube(firePointGO.transform.position + (transform.forward * 2f), transform.localScale * range);
-        }
+        }*/
             
     }
 }

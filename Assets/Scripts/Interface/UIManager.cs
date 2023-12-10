@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
@@ -10,6 +11,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject _loadingScreen;
     [SerializeField] GameObject _gameoverScreen;
     [SerializeField] GameObject _winScreen;
+    [SerializeField] Slider _healthSlider;
+    [SerializeField] Image currentGun;
 
     private void Awake()
     {
@@ -31,6 +34,16 @@ public class UIManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void UpdateHealthbar(int currentHealth)
+    {
+        _healthSlider.value = currentHealth;
+    }
+
+    public void SwitchGunSprite(Sprite gunSprite)
+    {
+        currentGun.sprite = gunSprite;
     }
 
     public void StartGame()

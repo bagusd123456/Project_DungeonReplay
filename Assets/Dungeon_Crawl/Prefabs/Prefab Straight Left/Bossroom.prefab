@@ -447,6 +447,8 @@ MonoBehaviour:
   - {fileID: 6484359608141243937}
   - {fileID: 4743499587170552752}
   enemyHealthList: []
+  roomCompleted: 0
+  playerObject: {fileID: 0}
   currentTime: 0
   waitTime: 3
   timesRevealed: 0

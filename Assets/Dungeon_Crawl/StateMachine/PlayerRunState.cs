@@ -15,7 +15,7 @@ public class PlayerRunState : PlayerBaseState
         Ctx.AppliedMovementX = Ctx.CurrentMovementInput.x;
         Ctx.AppliedMovementY = Ctx.CurrentMovementInput.y;
         FaceMouse();
-        //AdaptiveLegMovement();
+        AdaptiveLegMovement();
         CheckSwitchState();
     }
 
@@ -26,7 +26,8 @@ public class PlayerRunState : PlayerBaseState
 
     public override void ExitState() {
 
-        //AdaptiveLegMovement();
+
+        AdaptiveLegMovement();
         
 
     }
@@ -78,30 +79,10 @@ public class PlayerRunState : PlayerBaseState
         }
     }
 
-    /*void AdaptiveLegMovement()
+    void AdaptiveLegMovement()
     {
-        // Get Player Input Value
-        float playerVecticalInput = Ctx.CurrentMovementInput.y;
-        float playerHorizontalInput = Ctx.CurrentMovementInput.x;
-
-        // Get Camera Directional Vectors
-        Vector3 forward = Ctx.transform.forward;
-        Vector3 right = Ctx.transform.right;
-        forward.y = 0;
-        right.y = 0;
-        forward = forward.normalized;
-        right = right.normalized;
-
-        // Create Direction-Relative Input Vector
-        Vector3 forwardRelativeVecticalInput = playerVecticalInput * forward;
-        Vector3 rightRelativeVecticalInput = playerHorizontalInput * right;
-
-        Vector3 playerRelativeDirections = forwardRelativeVecticalInput + rightRelativeVecticalInput;
-
-        //Debug.Log(Ctx.Rigidbody.velocity.magnitude);
-        Ctx.Animator.SetFloat("Velocity X", Mathf.RoundToInt(playerRelativeDirections.x));
-        Ctx.Animator.SetFloat("Velocity Z", Mathf.RoundToInt(playerRelativeDirections.z));
-    }*/
+        Ctx.Move(Ctx.MoveAnimation);
+    }
 
 
 }

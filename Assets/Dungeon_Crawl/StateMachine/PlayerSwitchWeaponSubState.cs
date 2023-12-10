@@ -50,20 +50,25 @@ public class PlayerSwitchWeaponSubState : PlayerBaseState
 
     void SwitchToWeapon()
     {
-        for (int i = 0; i <= Ctx.WeaponList.Count - 1;)
+        if (Ctx.PlayerShootingScript.loadoutDataArray.Count > 1)
         {
+            for (int i = 0; i <= Ctx.WeaponList.Count - 1;)
+            {
 
-            if (i == Ctx.CurrentWeapon - 1)
-            {
-                Ctx.WeaponList[i].SetActive(true);
-                Ctx.PlayerShootingScript.WeaponSwitch(i);
-                WeaponData currentWeaponData = Ctx.PlayerShootingScript.loadoutDataArray[i].weaponData;
-                Ctx.Animator.SetFloat("ShootSpeed", currentWeaponData.fireRate);
-            } else
-            {
-                Ctx.WeaponList[i].SetActive(false);
+                if (i == Ctx.CurrentWeapon - 1)
+                {
+                    Ctx.WeaponList[i].SetActive(true);
+                    Ctx.PlayerShootingScript.WeaponSwitch(i);
+                    WeaponData currentWeaponData = Ctx.PlayerShootingScript.loadoutDataArray[i].weaponData;
+                    Ctx.Animator.SetFloat("ShootSpeed", currentWeaponData.fireRate);
+                }
+                else
+                {
+                    Ctx.WeaponList[i].SetActive(false);
+                }
+                i++;
             }
-            i++;
         }
+        
     }
 }

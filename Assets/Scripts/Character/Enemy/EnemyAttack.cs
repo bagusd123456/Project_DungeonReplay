@@ -23,6 +23,7 @@ public class EnemyAttack : MonoBehaviour
     GameObject player;
     [HideInInspector]
     public PlayerHealth playerHealth;
+    EnemyMovement _enemyMovement;
     EnemyHealth enemyHealth;
     public bool playerInRange;
     public float timer;
@@ -38,6 +39,8 @@ public class EnemyAttack : MonoBehaviour
         //mendapatkan komponen Animator
         anim = GetComponentInChildren<Animator>();
         enemyHealth = GetComponent<EnemyHealth>();
+
+        _enemyMovement = GetComponent<EnemyMovement>();
     }
 
     void Update()
@@ -60,7 +63,8 @@ public class EnemyAttack : MonoBehaviour
         if (timer >= timeBetweenAttacks && playerInRange && playerHealth.currentHealth > 0)
         {
             if (_attackType == attackType.BOMBER)
-                Blow();
+                StartCoroutine(nameof(Blow));
+
             else if (_attackType == attackType.MELEE)
                 Attack();
             else if (_attackType == attackType.SPITTER)
@@ -188,17 +192,19 @@ public class EnemyAttack : MonoBehaviour
         //}
     }
 
-    public void Blow()
+    public IEnumerator Blow()
     {
         //Reset timer
         timer = 0f;
 
+        _enemyMovement.EnemyStop();
         //Taking Damage
         if (distance < 3f)
         {
+            yield return new WaitForSeconds(2f);
             //var blowGO = Instantiate(projectile, transform.position, transform.rotation);
             Instantiate(explosionParticle, transform.position, Quaternion.identity);
-            playerHealth.TakeDamage(attackDamage);
+            //playerHealth.TakeDamage(attackDamage);
             enemyHealth.currentHealth = 0;
             Destroy(gameObject);
         }

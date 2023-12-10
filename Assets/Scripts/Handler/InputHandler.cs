@@ -25,7 +25,8 @@ public class InputHandler : MonoBehaviour
             Instance = this;
         }
 
-        //playerInput.Player.Interact.started += OnCollectAction;
+        playerInput.Player.Interact.started += OnCollectAction;
+        playerInput.Player.Interact.canceled += OnCollectAction;
     }
 
     public void OnCollectAction(InputAction.CallbackContext ctx)
@@ -44,13 +45,13 @@ public class InputHandler : MonoBehaviour
     private void OnEnable()
     {
         playerInput.Player.Enable();
-        playerInput.Player.Interact.started += OnCollectAction;
+        //playerInput.Player.Interact.started += OnCollectAction;
     }
 
     private void OnDisable()
     {
         playerInput.Player.Disable();
-        playerInput.Player.Interact.started -= OnCollectAction;
+        //playerInput.Player.Interact.started -= OnCollectAction;
     }
 
     // Start is called before the first frame update

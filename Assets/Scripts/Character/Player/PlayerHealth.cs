@@ -60,6 +60,8 @@ public class PlayerHealth : MonoBehaviour
         //mengurangi health
         currentHealth -= amount;
 
+        UIManager.Instance.UpdateHealthbar(currentHealth);
+
         //Memainkan suara ketika terkena damage
         playerAudio.Play();
 
@@ -69,6 +71,15 @@ public class PlayerHealth : MonoBehaviour
         {
             Death();
         }*/
+    }
+
+    public void AddHealth(int amount)
+    {
+        currentHealth += amount;
+
+        UIManager.Instance.UpdateHealthbar(currentHealth);
+
+
     }
 
 
@@ -121,8 +132,12 @@ public class PlayerHealth : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        detectedItem = null;
-        detectedWeapon = null;
-        Debug.Log("iam not detecting items");
+        if (other.CompareTag("Collectible"))
+        {
+            detectedItem = null;
+            detectedWeapon = null;
+            Debug.Log("iam not detecting items");
+        }
+        
     }
 }

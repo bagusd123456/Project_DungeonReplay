@@ -10,6 +10,9 @@ public class RoomController : MonoBehaviour
     public List<GameObject> gateList;
     public List<EnemyHealth> enemyHealthList;
 
+    public bool roomCompleted = false;
+    public GameObject playerObject;
+
     public float currentTime;
 
     public float waitTime = 3f;
@@ -49,6 +52,12 @@ public class RoomController : MonoBehaviour
         if (enemyHealthList.Count == 0)
         {
             UnlockAllGate();
+
+            if (!roomCompleted)
+            {
+                roomCompleted = true;
+                playerObject.GetComponent<PlayerHealth>().AddHealth(15);
+            }
         }
 
         if (currentTime > 0)
@@ -121,6 +130,6 @@ public class RoomController : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player") && currentTime <= 0 && timesRevealed < 1)
-            RevealEnemy();
+            RevealEnemy(); playerObject = other.gameObject;
     }
 }
