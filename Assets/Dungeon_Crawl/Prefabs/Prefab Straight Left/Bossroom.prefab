@@ -808,6 +808,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LaserWall
       objectReference: {fileID: 0}
+    - target: {fileID: 6046887682141039948, guid: 9cb8149139f9f4d3db3f2f3f030525a9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9cb8149139f9f4d3db3f2f3f030525a9, type: 3}
 --- !u!1 &6484359608141243937 stripped
@@ -889,6 +894,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LaserWall (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6046887682141039948, guid: 9cb8149139f9f4d3db3f2f3f030525a9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9cb8149139f9f4d3db3f2f3f030525a9, type: 3}
 --- !u!1 &4743499587170552752 stripped
@@ -918,17 +928,17 @@ PrefabInstance:
     - target: {fileID: 3366868822301815239, guid: 611da313d5748744ca523b34efc98a61,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.25
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 3366868822301815239, guid: 611da313d5748744ca523b34efc98a61,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.25
+      value: 0.20000002
       objectReference: {fileID: 0}
     - target: {fileID: 3366868822301815239, guid: 611da313d5748744ca523b34efc98a61,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.25
+      value: 0.20000002
       objectReference: {fileID: 0}
     - target: {fileID: 3366868822301815239, guid: 611da313d5748744ca523b34efc98a61,
         type: 3}
@@ -943,7 +953,7 @@ PrefabInstance:
     - target: {fileID: 3366868822301815239, guid: 611da313d5748744ca523b34efc98a61,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.58000004
+      value: -0.41999996
       objectReference: {fileID: 0}
     - target: {fileID: 3366868822301815239, guid: 611da313d5748744ca523b34efc98a61,
         type: 3}
