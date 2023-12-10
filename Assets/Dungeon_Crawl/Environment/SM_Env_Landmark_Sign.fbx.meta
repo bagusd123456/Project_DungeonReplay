@@ -5,10 +5,35 @@ ModelImporter:
   internalIDToNameTable: []
   externalObjects:
   - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Env_Landmark_Sign_Board
+    second: {fileID: 2100000, guid: 520dc5afe91ccb643bb0c4aa2e240edc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Env_Landmark_Sign_Gear
+    second: {fileID: 2100000, guid: e37d0a0780fe273428c8b250f1db7753, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Env_Landmark_Sign_Pillar
+    second: {fileID: 2100000, guid: a4b41bb5b66a88e4ea93c7641963c425, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Env_Landmark_Sign_Pipe
+    second: {fileID: 2100000, guid: 1c9471e375d554d4d98a771f5e910618, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Env_Landmark_Sign_Text
+    second: {fileID: 2100000, guid: 4b29fa50ace98944589422d9ee0d0381, type: 2}
+  - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: T_2D_Env_World
-    second: {fileID: 2800000, guid: 9955708082bb65d4eb85e58f9f67c834, type: 3}
+    second: {fileID: 2800000, guid: e89f44fe608b72e4fb865894b89c11c7, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0

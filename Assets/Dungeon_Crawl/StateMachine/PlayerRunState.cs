@@ -28,8 +28,6 @@ public class PlayerRunState : PlayerBaseState
 
 
         AdaptiveLegMovement();
-        
-
     }
 
     public override void InitializeSubState() { }
@@ -45,7 +43,8 @@ public class PlayerRunState : PlayerBaseState
         if (!Ctx.IsMovementPressed)
         {
             SwitchState(Factory.Idle());
-        } else if (Ctx.IsDashPressed && Ctx.IsAbleToDash)
+        } 
+        if (Ctx.IsDashPressed && Ctx.IsAbleToDash)
         {
             SwitchState(Factory.Dash());
         }

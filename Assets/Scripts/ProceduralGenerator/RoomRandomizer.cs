@@ -44,8 +44,9 @@ public class RoomRandomizer : MonoBehaviour
         var GO = Instantiate(targetPrefab, transform);
         GO.transform.position = transform.localPosition;
         tempRoom = GO;
-
+#if UNITY_EDITOR
         GenerateNavMesh();
+#endif
     }
 #if UNITY_EDITOR
     public void GenerateNavMesh()
