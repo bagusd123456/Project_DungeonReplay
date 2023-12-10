@@ -60,7 +60,10 @@ public class Boss_Kuro : EnemyHealth
     // Update is called once per frame
     void Update()
     {
-        if (isDead) return;
+        if (isDead) {
+            UIManager.Instance.WinGame();
+            return;
+        };
 
         base.Update();
 

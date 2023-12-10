@@ -60,7 +60,14 @@ public class PlayerDashState : PlayerBaseState
     {
         previousVelocity = Ctx.Rigidbody.velocity;
 
+        Quaternion currentRotation = Ctx.transform.rotation;
+
+        Quaternion targetRotation = Quaternion.LookRotation(Ctx.CameraRelativeDirections, Vector3.up);
+
         Ctx.Rigidbody.velocity = Ctx.CameraRelativeDirections * Ctx.DashSpeed;
+
+        Ctx.transform.rotation = Quaternion.Slerp(currentRotation, targetRotation, Ctx._rotationFactorPerFrame * Time.deltaTime);
+
         //Ctx.IsDashing = false;
     }
 }

@@ -8,9 +8,12 @@ public class PlayerIdleState : PlayerBaseState
         : base(currentContext, playerStateFactory) { }
     public override void EnterState() {
         Ctx.Animator.SetBool("isWalking", false);
+        Ctx.Animator.SetFloat("Forward", 0);
+        Ctx.Animator.SetFloat("Turn", 0);
         Debug.Log("I am Standing.");
         Ctx.AppliedMovementX = 0;
         Ctx.AppliedMovementY = 0;
+        Ctx.Move(Ctx.MoveAnimation);
     }
 
     public override void UpdateState() {
