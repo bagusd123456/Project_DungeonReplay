@@ -106,7 +106,9 @@ PrefabInstance:
       propertyPath: m_Mass
       value: 0.91
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -2753068306021690450, guid: 1084d6fb69d392d4295cc7829134f2d3, type: 3}
+    - {fileID: 4066499545899318395, guid: 1084d6fb69d392d4295cc7829134f2d3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1084d6fb69d392d4295cc7829134f2d3, type: 3}
 --- !u!4 &1255477058219324786 stripped
 Transform:
@@ -133,6 +135,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyAttack: {fileID: 0}
+  projectileDamage: 0
+  projectileSpeed: 15
 --- !u!1001 &1883398423570705871
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -205,7 +209,9 @@ PrefabInstance:
       propertyPath: m_Mass
       value: 0.91
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -2753068306021690450, guid: 1084d6fb69d392d4295cc7829134f2d3, type: 3}
+    - {fileID: 4066499545899318395, guid: 1084d6fb69d392d4295cc7829134f2d3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1084d6fb69d392d4295cc7829134f2d3, type: 3}
 --- !u!1 &1392032771589641953 stripped
 GameObject:
@@ -226,6 +232,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyAttack: {fileID: 0}
+  projectileDamage: 0
+  projectileSpeed: 15
 --- !u!4 &1392032771589641957 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 680697259318049578, guid: 1084d6fb69d392d4295cc7829134f2d3,
@@ -304,7 +312,9 @@ PrefabInstance:
       propertyPath: m_Mass
       value: 0.91
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -2753068306021690450, guid: 1084d6fb69d392d4295cc7829134f2d3, type: 3}
+    - {fileID: 4066499545899318395, guid: 1084d6fb69d392d4295cc7829134f2d3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1084d6fb69d392d4295cc7829134f2d3, type: 3}
 --- !u!1 &6951469019033945289 stripped
 GameObject:
@@ -325,6 +335,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyAttack: {fileID: 0}
+  projectileDamage: 0
+  projectileSpeed: 15
 --- !u!4 &6951469019033945293 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 680697259318049578, guid: 1084d6fb69d392d4295cc7829134f2d3,

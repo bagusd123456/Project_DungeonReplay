@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 4066499545899318395}
   - component: {fileID: 1975131872}
   - component: {fileID: 1975131871}
+  - component: {fileID: -2753068306021690450}
   m_Layer: 3
   m_Name: Enemy Bullet
   m_TagString: Bullet
@@ -4919,6 +4920,26 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &-2753068306021690450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 680697259318049582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d636c6d2619dbbd44915e8089fe85ae6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  center: {fileID: 0}
+  targetDistance: 3
+  angle: 0
+  projectileSpeed: 1
+  damageAmount: 10
+  canMove: 0
+  caster: {fileID: 0}
+  rotation: {x: 0, y: 90, z: 90}
 --- !u!1 &680697259560978897
 GameObject:
   m_ObjectHideFlags: 0

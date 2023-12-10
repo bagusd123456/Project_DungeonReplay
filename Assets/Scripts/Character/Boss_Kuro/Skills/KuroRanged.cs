@@ -65,6 +65,7 @@ public class KuroRanged : MonoBehaviour
     // Spawn Projectiles Simultaneously
     public void SpawnProjectile(int spawnCount)
     {
+        spawnRotation += 15f;
         for (int i = projectiles.Count; i < spawnCount; i++)
         {
             Vector3 targetPos = transform.position + Vector3.forward;
@@ -98,7 +99,7 @@ public class KuroRanged : MonoBehaviour
             for (int i = 0; i < spawnCount; i++)
             {
                 float angle = 6.29f / spawnCount * i + spawnRotation;
-                Vector3 offset = new Vector3(Mathf.Sin(angle) * targetDistance, Mathf.Cos(angle) * targetDistance, 0) * targetDistance;
+                Vector3 offset = new Vector3(Mathf.Cos(angle) * targetDistance, 0, Mathf.Sin(angle) * targetDistance) * targetDistance;
                 Vector3 targetPos = transform.position + offset;
 
                 Gizmos.DrawWireSphere(targetPos, 0.2f);

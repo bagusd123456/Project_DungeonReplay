@@ -18,6 +18,8 @@ public class ProjectilesForward : MonoBehaviour
     public bool canMove = false;
 
     public Transform caster;
+
+    public Vector3 rotation;
     private void Awake()
     {
         if(player == null)
@@ -35,8 +37,9 @@ public class ProjectilesForward : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        LookAtTarget();
         if(canMove)
-            transform.position += transform.right * projectileSpeed * Time.deltaTime;
+            transform.position += transform.forward * projectileSpeed * Time.deltaTime;
 
     }
 
@@ -49,19 +52,19 @@ public class ProjectilesForward : MonoBehaviour
     {
         Vector2 lookDir = center.position - transform.position;
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0, 0, Mathf.Lerp(0, angle - 180, 2f));
+        transform.rotation = Quaternion.Euler(rotation);
     }
 
     public void SetPosition()
     {
-        offset = new Vector3(Mathf.Sin(angle) * targetDistance, Mathf.Cos(angle) * targetDistance, 0) * targetDistance;
+        offset = new Vector3(Mathf.Cos(angle) * targetDistance, .6f, Mathf.Sin(angle) * targetDistance) * targetDistance;
         transform.position = center.position + offset;
     }
 
     IEnumerator EnableCollider()
     {
         yield return new WaitForSeconds(0.05f);
-        GetComponent<SphereCollider>().enabled = true;
+        //GetComponent<SphereCollider>().enabled = true;
     }
 
     private void OnTriggerEnter(Collider other)

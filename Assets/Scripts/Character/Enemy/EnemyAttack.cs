@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using DG.Tweening;
 
 public class EnemyAttack : MonoBehaviour
 {
@@ -41,7 +42,7 @@ public class EnemyAttack : MonoBehaviour
 
     void Update()
     {
-        if(!enemyHealth.isReady) return;
+        if(!enemyHealth.isReady || enemyHealth.isDead) return;
         timer += Time.deltaTime;
 
         //playerInRange = Physics.CheckSphere(transform.position + Vector3.up * 1.02f, attackRadius, layer);
@@ -99,7 +100,8 @@ public class EnemyAttack : MonoBehaviour
                 {
                     if (playerInRange)
                     {
-                        gameObject.GetComponent<Transform>().LookAt(player.transform);
+                        //gameObject.GetComponent<Transform>().LookAt(player.transform);
+                        transform.DOLookAt(player.transform.position, 1f);
                         gameObject.GetComponent<EnemyMovement>()._enemyState = EnemyMovement.EnemyState.STAY;
                         anim.SetTrigger("isAttacking");
                         var projectileGO = Instantiate(projectile, firePoint.position, firePoint.rotation);

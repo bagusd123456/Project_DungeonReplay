@@ -12,9 +12,9 @@ public class KuroAOE : MonoBehaviour
     public int spawnCount;
 
     public PlayerHealth player;
-    public AOEDamage projectile;
+    public GameObject projectile;
 
-    public List<AOEDamage> targetList = new List<AOEDamage>();
+    public List<GameObject> targetList = new List<GameObject>();
     // Start is called before the first frame update
     void Start()
     {
@@ -24,39 +24,30 @@ public class KuroAOE : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (spawnTime > 0)
-            spawnTime -= Time.deltaTime;
-        else
-        {
-            spawnTime = spawnInterval;
-            StartCoroutine(SpawnOnPlayer2());
-        }
+        //if (spawnTime > 0)
+        //    spawnTime -= Time.deltaTime;
+        //else
+        //{
+        //    spawnTime = spawnInterval;
+        //    StartCoroutine(SpawnOnPlayer2());
+        //}
 
-        foreach (var item in targetList)
-        {
-            item.targetDistance = targetDistance;
-            item.SetPosition();
-            if (item.isDestroyed)
-            {
-                item.enabled = false;
-            }
-        }
 
-        for (int i = 0; i < targetList.Count; i++)
-        {
-            if (targetList[i] != null)
-            {
-                if (targetList[i].isDestroyed)
-                {
-                    targetList[i].gameObject.SetActive(false);
-                    targetList.RemoveAt(i);
-                }
-            }
-            else
-            {
-                i++;
-            }
-        }
+        //for (int i = 0; i < targetList.Count; i++)
+        //{
+        //    if (targetList[i] != null)
+        //    {
+        //        if (targetList[i] == null)
+        //        {
+        //            //targetList[i].gameObject.SetActive(false);
+        //            targetList.RemoveAt(i);
+        //        }
+        //    }
+        //    else
+        //    {
+        //        i++;
+        //    }
+        //}
     }
 
     [ContextMenu("Spawn")]
@@ -66,11 +57,7 @@ public class KuroAOE : MonoBehaviour
         for (int i = targetList.Count; i < spawnCount; i++)
         {
             var prj = Instantiate(projectile, transform);
-            prj.rotateAround = transform;
-            prj.angle = Random.Range(0f,7f) / spawnCount * j;
-            prj.damageCountdown = damageCountdown;
-            j++;
-
+            prj.SetActive(true);
             targetList.Add(prj);
         }
     }
@@ -79,9 +66,6 @@ public class KuroAOE : MonoBehaviour
     public void SpawnOnPlayer()
     {
         var prj = Instantiate(projectile, transform);
-        prj.rotateAround = transform;
-        //prj.angle = player.transform.position;
-        prj.damageCountdown = damageCountdown;
 
         targetList.Add(prj);
     }
@@ -92,9 +76,9 @@ public class KuroAOE : MonoBehaviour
         {
             yield return new WaitForSeconds(0.3f);
             var prj = Instantiate(projectile, transform);
-            prj.rotateAround = transform;
+            prj.transform.position = player.transform.position;
             //prj.angle = player.currentAngle;
-            prj.damageCountdown = damageCountdown;
+            //prj.damageCountdown = damageCountdown;
 
             targetList.Add(prj);
         }

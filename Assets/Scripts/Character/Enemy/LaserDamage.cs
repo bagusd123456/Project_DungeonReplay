@@ -43,5 +43,6 @@ public class LaserDamage : MonoBehaviour
     {
         //transform.parent.GetComponent<KuroLaser>().scanTime = transform.parent.GetComponent<KuroLaser>().scanInterval;
         gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 }

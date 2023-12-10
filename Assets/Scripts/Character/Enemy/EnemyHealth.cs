@@ -25,7 +25,7 @@ public class EnemyHealth : MonoBehaviour
     [Header("On Enemy Die")] 
     public List<EnemyDrop> enemyDropList;
 
-    void Awake()
+    public virtual void Awake()
     {
         //Mendapatkan reference komponen
         anim = GetComponentInChildren<Animator>();
@@ -38,7 +38,7 @@ public class EnemyHealth : MonoBehaviour
     }
 
 
-    void Update()
+    public virtual void Update()
     {
         //Check jika sinking
         if (isSinking)
