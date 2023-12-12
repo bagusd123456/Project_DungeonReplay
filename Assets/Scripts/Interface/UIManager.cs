@@ -60,13 +60,17 @@ public class UIManager : MonoBehaviour
         StartCoroutine(LoadingNextScene("MainMenu"));
     }
 
+    public void WinTheGame()
+    {
+        StartCoroutine(WinGame());
+    }
+
     public IEnumerator WinGame()
     {
         _winScreen.SetActive(true);
         yield return new WaitForSeconds(5f);
 
         StartCoroutine(LoadingNextScene("MainMenu"));
-
     }
 
     IEnumerator LoadingNextScene(string sceneName)

@@ -61,7 +61,7 @@ public class Boss_Kuro : EnemyHealth
     void Update()
     {
         if (isDead) {
-            UIManager.Instance.WinGame();
+            UIManager.Instance.WinTheGame();
             return;
         };
 
