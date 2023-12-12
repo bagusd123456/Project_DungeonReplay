@@ -159,7 +159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e37e6895091c50941924849715945739, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 0.5
+  radius: 1
   damageAmount: 0
   currentDamageTime: 0
   damageInterval: 1.5
@@ -177,7 +177,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnInterval: 1
   damageCountdown: 2
-  targetDistance: 3
+  targetDistance: 6
   spawnCount: 10
   player: {fileID: 0}
   projectile: {fileID: 7631316285028527181, guid: 91f4042306a7acf4bacef96752c52c35,

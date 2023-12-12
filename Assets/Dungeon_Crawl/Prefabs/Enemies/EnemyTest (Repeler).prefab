@@ -115,6 +115,7 @@ MonoBehaviour:
   deathClip: {fileID: 0}
   anim: {fileID: 0}
   isDead: 0
+  isReady: 0
   enemyDropList:
   - item: {fileID: 0}
     probability: 50
@@ -166,7 +167,7 @@ MonoBehaviour:
   attackRadius: 10
   timeBetweenAttacks: 0.5
   attackDamage: 10
-  projectileSpeed: 5
+  projectileSpeed: 8
   layer:
     serializedVersion: 2
     m_Bits: 64

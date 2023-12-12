@@ -153,7 +153,7 @@ MonoBehaviour:
   explosionParticle: {fileID: 717362969159137703, guid: 4f24a4e6003684a40a02db06f0d35002,
     type: 3}
   firePoint: {fileID: 0}
-  attackRadius: 5
+  attackRadius: 8
   timeBetweenAttacks: 0.5
   attackDamage: 7
   projectileSpeed: 5
