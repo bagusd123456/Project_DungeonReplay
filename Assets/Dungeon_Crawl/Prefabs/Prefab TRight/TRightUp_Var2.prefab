@@ -945,6 +945,7 @@ MonoBehaviour:
   currentTime: 0
   waitTime: 3
   timesRevealed: 0
+  navMeshSurface: {fileID: 0}
 --- !u!114 &4086776937744450692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1452,7 +1453,7 @@ PrefabInstance:
     - target: {fileID: 6046887682141039948, guid: 9cb8149139f9f4d3db3f2f3f030525a9,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9cb8149139f9f4d3db3f2f3f030525a9, type: 3}
