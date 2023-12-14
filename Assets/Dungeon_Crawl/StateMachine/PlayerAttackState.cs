@@ -21,16 +21,16 @@ public class PlayerAttackState : PlayerBaseState
     public override void UpdateState()
     {
         FaceMouse();
+        AdaptiveLegMovement(); ;
         if (Ctx.IsMovementPressed)
         {
-            Ctx.Animator.SetBool("isWalking", true);
+            //Ctx.Animator.SetBool("isWalking", true);
             Ctx.AppliedMovementX = Ctx.CurrentMovementInput.x;
             Ctx.AppliedMovementY = Ctx.CurrentMovementInput.y;
         }
         else
         {
-            Ctx.Animator.SetBool("isWalking", false);
-
+            //Ctx.Animator.SetBool("isWalking", false);
         }
 
         CheckSwitchState();
@@ -107,8 +107,8 @@ public class PlayerAttackState : PlayerBaseState
     }
 
     // logic to shoot projectile from weapon
-    void ShootWeapon()
+    void AdaptiveLegMovement()
     {
-        
+        Ctx.Move(Ctx.MoveAnimation);
     }
 }

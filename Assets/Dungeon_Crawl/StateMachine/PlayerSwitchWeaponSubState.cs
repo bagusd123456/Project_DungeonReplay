@@ -60,7 +60,6 @@ public class PlayerSwitchWeaponSubState : PlayerBaseState
                     Ctx.WeaponList[i].SetActive(true);
                     Ctx.PlayerShootingScript.WeaponSwitch(i);
                     WeaponData currentWeaponData = Ctx.PlayerShootingScript.loadoutDataArray[i].weaponData;
-                    Ctx.Animator.SetFloat("ShootSpeed", currentWeaponData.fireRate);
                 }
                 else
                 {

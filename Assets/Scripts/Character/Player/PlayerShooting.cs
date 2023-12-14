@@ -275,6 +275,8 @@ public class PlayerShooting : MonoBehaviour
     public void WeaponUpdateData()
     {
         WeaponData weapon = loadoutDataArray[currentWeapon].weaponData;
+        _animator.SetFloat("ShootSpeed", weapon.fireRate);
+
 
         //shootTime = _weaponList[currentWeapon].fireRate;
         UIManager.Instance.SwitchGunSprite(weapon.weaponImage);

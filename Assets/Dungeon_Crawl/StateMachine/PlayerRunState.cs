@@ -30,13 +30,14 @@ public class PlayerRunState : PlayerBaseState
         AdaptiveLegMovement();
     }
 
-    public override void InitializeSubState() { }
+    public override void InitializeSubState() {
+    
+    }
 
     public override void CheckSwitchState() {
         if (Ctx.IsAttackPressed)
         {
             SwitchState(Factory.Attack());
-            Ctx.Animator.SetBool("isWalking", false);
 
         }
 
