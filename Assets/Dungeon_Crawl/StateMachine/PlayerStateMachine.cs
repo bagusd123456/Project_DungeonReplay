@@ -209,8 +209,6 @@ public class PlayerStateMachine : MonoBehaviour
             FaceMouse();
         }
         
-        
-        
     }
 
     public void FaceMouse()
@@ -317,7 +315,6 @@ public class PlayerStateMachine : MonoBehaviour
     void OnMovementInput(InputAction.CallbackContext context)
     {
         _currentMovementInput = context.ReadValue<Vector2>();
-        //_isMovementPressed = _currentMovementInput.x != 0 || _currentMovementInput.y != 0;
     }
 
     void OnDashInput(InputAction.CallbackContext context)
